@@ -1,20 +1,10 @@
-import { h, Component } from 'preact';
+import { h, FunctionComponent } from 'preact';
 
 import './App.css';
 
-class App extends Component {
-
-  constructor(props: {}) {
-    super(props);
-	}
-
-	render () {
-		return (
-      <div id="app">
-      </div>
-    );
-	}
-
-}
+const App: FunctionComponent = () => (
+  <div id="app">
+  </div>
+);
 
 export default App;
