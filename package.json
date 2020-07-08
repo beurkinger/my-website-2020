@@ -1,0 +1,44 @@
+{
+  "name": "s-u-n",
+  "version": "0.0.1",
+  "description": "Toying around with animated SVG.",
+  "main": "index.html",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
+    "start": "webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beurkinger/s-u-n.git"
+  },
+  "keywords": [
+    "preact",
+    "boilerplate",
+    "javascript",
+    "html5",
+    "css3",
+    "framework"
+  ],
+  "author": "Thibault Goehringer",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/beurkinger/s-u-n/issues"
+  },
+  "homepage": "https://github.com/beurkinger/s-u-n#readme",
+  "dependencies": {
+    "preact": "^10.4.4"
+  },
+  "devDependencies": {
+    "css-loader": "^3.6.0",
+    "file-loader": "^4.3.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.2",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.9.5",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
