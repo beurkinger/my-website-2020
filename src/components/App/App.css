@@ -3,15 +3,33 @@
   /* background: #23ada8; */
   height: 100%;
   width: 100%;
-  padding: 2rem;
+  padding-top: 8rem;
 }
 
-.sun {
-  border: 1px solid white;
-  /* padding: 0.5rem; */
-  display: block;
+.sun-wrapper {
+  position: relative;
   margin: 0 auto;
+  border: 1px solid white;
+  width: 520px;
 }
+
+.sun-wrapper .hello, .sun-wrapper .world {
+  position: absolute;
+  left: 50%;
+  height: 88px;
+  image-rendering: pixelated;
+}
+
+.sun-wrapper .hello {
+  top: 0;
+  transform: translate3d(-50%, -66%, 0);
+}
+
+.sun-wrapper .world {
+  bottom: 0;
+  transform: translate3d(-50%, 36%, 0);
+}
+
 
 h1 {
   /* position: relative;

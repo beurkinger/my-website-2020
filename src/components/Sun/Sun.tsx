@@ -30,23 +30,22 @@ const Sun: FunctionComponent<Props> = ({ backgroundColor, height, maxRaysLength,
 
     const sunCenter = { x: width / 2, y: height / 2 };
 
-    ctx.canvas.width = width;
-    ctx.canvas.height = height;
-    ctx.imageSmoothingEnabled = false;
-    ctx.lineWidth = 1.4;
+    ctx.lineWidth = 1.3;
     ctx.lineCap = 'round';
     ctx.strokeStyle = strokeColor;
 
     ctx.clearRect(0, 0, width, height);
     const raysLength = Math.sin(easingValue) * maxRaysLength;
     
-    const tangents = getTangents(sunCenter, sunRadius, raysLength, nbRays, rotation);
-    tangents.forEach(({ start, end }) => {
-      ctx.beginPath();
-      ctx.moveTo(start.x, start.y);
-      ctx.lineTo(end.x, end.y);
-      ctx.stroke();
-    })
+    if (raysLength > 1) {
+      const tangents = getTangents(sunCenter, sunRadius, raysLength, nbRays, rotation);
+      tangents.forEach(({ start, end }) => {
+        ctx.beginPath();
+        ctx.moveTo(start.x, start.y);
+        ctx.lineTo(end.x, end.y);
+        ctx.stroke();
+      })
+    }
 
     ctx.beginPath();
     ctx.arc(sunCenter.x, sunCenter.y, sunRadius + raysLength, 0, 2 * Math.PI);
@@ -74,10 +73,20 @@ const Sun: FunctionComponent<Props> = ({ backgroundColor, height, maxRaysLength,
 
 
   useEffect(() => {
-    const ctx = canvasRef?.current?.getContext("2d") ?? null;
-    setCtx(ctx);
+    const ctx = canvasRef?.current.getContext("2d") ?? null;
+  
+    if (ctx) {
+      const pixelRatio = window?.devicePixelRatio || 1;
+      ctx.canvas.width = width * pixelRatio;
+      ctx.canvas.height = height * pixelRatio;
+      ctx.scale(pixelRatio,pixelRatio);
+      ctx.imageSmoothingEnabled = false;
+    }
 
+    setCtx(ctx);
+    
     requestAnimationFrame(animate);
+
     return () => cancelAnimationFrame(animationFrameRef.current);
   }, []);
   
