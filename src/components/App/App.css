@@ -1,14 +1,15 @@
 .app {
+  display: flex;
   height: 100%;
   width: 100%;
-  padding-top: 8rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .sunWrapper {
   position: relative;
-  margin: 0 auto;
+  margin-top: 1rem;
   border: 1px solid white;
-  width: 522px;
 }
 
 .sunWrapper svg {
