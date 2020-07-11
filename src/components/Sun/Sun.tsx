@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef } from 'preact/hooks';
 
 import { getTangents } from './utils';
 
-import './Sun.css';
+import styles from './Sun.css';
 
 interface Props {
   backgroundColor: string;
@@ -110,7 +110,7 @@ const Sun: FunctionComponent<Props> = ({
 
   return (
     <canvas
-      className="sun"
+      className={styles.sun}
       ref={canvasRef}
       style={{ backgroundColor, height, width }}
     />

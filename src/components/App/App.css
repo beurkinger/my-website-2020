@@ -1,31 +1,31 @@
-#app {
+.app {
   height: 100%;
   width: 100%;
   padding-top: 8rem;
 }
 
-.sun-wrapper {
+.sunWrapper {
   position: relative;
   margin: 0 auto;
   border: 1px solid white;
   width: 522px;
 }
 
-.sun-wrapper .hello, .sun-wrapper .world {
+.sunWrapper svg {
   position: absolute;
   left: 50%;
   height: 88px;
   image-rendering: pixelated;
 }
 
-.sun-wrapper .hello {
+.sunWrapper svg:first-of-type {
   top: 0;
   transform: translate3d(-50%, -66%, 0);
   /* transform: translate3d(-50%, -54%, 0); */
 
 }
 
-.sun-wrapper .world {
+.sunWrapper svg:last-of-type {
   bottom: 0;
   transform: translate3d(-50%, 36%, 0);
 }

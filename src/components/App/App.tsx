@@ -4,14 +4,14 @@ import Sun from '../Sun/Sun';
 import Hello from '../Hello/Hello';
 import World from '../World/World';
 
-import './App.css';
+import styles from './App.css';
 
 const fillColor = '#0000FF';
 const strokeColor = '#FFFFFF';
 
 const App: FunctionComponent = () => (
-  <div id="app" style={{ backgroundColor: fillColor }}>
-    <div className="sun-wrapper" style={{ borderColor: strokeColor }}>
+  <div className={styles.app} style={{ backgroundColor: fillColor }}>
+    <div className={styles.sunWrapper} style={{ borderColor: strokeColor }}>
       <Hello fillColor={fillColor} strokeColor={strokeColor} />
       <Sun
         backgroundColor={fillColor}
