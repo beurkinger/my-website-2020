@@ -1,5 +1,5 @@
 import { h, FunctionComponent } from 'preact';
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useCallback, useEffect, useRef } from 'preact/hooks';
 
 import { getTangents } from './utils';
 
@@ -19,14 +19,21 @@ interface Props {
 const Sun: FunctionComponent<Props> = ({ backgroundColor, height, maxRaysLength, nbRays, strokeColor, sunRadius, width }: Props) => {
   const animationFrameRef = useRef(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [ctx, setCtx] = useState<CanvasRenderingContext2D | null>(null);
-  const [rotation, setRotation] = useState<number>(0);
+  const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
+  const rotationRef = useRef(0);
+  const easingValueRef = useRef(0);
+  // const [ctx, setCtx] = useState<CanvasRenderingContext2D | null>(null);
+  // const [rotation, setRotation] = useState<number>(0);
   // const [raysLength, setRaysLength] = useState<number>(0);
-  const [easingValue, setEasingValue] = useState<number>(0);
+  // const [easingValue, setEasingValue] = useState<number>(0);
 
 
-  const draw = () => {
-    if (!canvasRef.current || !ctx) return;
+  const draw = useCallback(() => {
+    if (!canvasRef.current || !ctxRef.current) return;
+
+    const ctx = ctxRef.current;
+    const rotation = rotationRef.current;
+    const easingValue = easingValueRef.current;
 
     const sunCenter = { x: width / 2, y: height / 2 };
 
@@ -50,31 +57,32 @@ const Sun: FunctionComponent<Props> = ({ backgroundColor, height, maxRaysLength,
     ctx.beginPath();
     ctx.arc(sunCenter.x, sunCenter.y, sunRadius + raysLength, 0, 2 * Math.PI);
     ctx.stroke();
-  }
+  }, [height, maxRaysLength, nbRays, strokeColor, sunRadius, width]);
 
-  const animate = () => {
-    setRotation((prevRotation) => (
-      prevRotation + 0.005 >= Math.PI * 2 
-        ? prevRotation + 0.005 - Math.PI * 2 
-        : prevRotation + 0.005
-    ));
-    setEasingValue(prevEasingValue => (
-      prevEasingValue + 0.002 >= Math.PI
+  const animate = useCallback(() => {
+    const prevRotation = rotationRef.current;
+    const prevEasingValue = easingValueRef.current;
+
+    rotationRef.current =  prevRotation + 0.005 >= Math.PI * 2 
+      ? prevRotation + 0.005 - Math.PI * 2 
+      : prevRotation + 0.005;
+    easingValueRef.current = prevEasingValue + 0.002 >= Math.PI
       ? 0 
-      : prevEasingValue + 0.002
-    ));
+      : prevEasingValue + 0.002;
     // setRaysLength(prevRaysLength => (
     //   prevRaysLength + 0.005 >= maxRaysLength 
     //   ? 0 
     //   : prevRaysLength + 0.5
     // ));
+
+    draw();
+
     animationFrameRef.current = requestAnimationFrame(animate);
-  }
+  }, [draw])
 
 
   useEffect(() => {
     const ctx = canvasRef?.current.getContext("2d") ?? null;
-  
     if (ctx) {
       const pixelRatio = window?.devicePixelRatio || 1;
       ctx.canvas.width = width * pixelRatio;
@@ -83,15 +91,13 @@ const Sun: FunctionComponent<Props> = ({ backgroundColor, height, maxRaysLength,
       ctx.imageSmoothingEnabled = false;
     }
 
-    setCtx(ctx);
+    ctxRef.current = ctx;
     
-    requestAnimationFrame(animate);
+    animationFrameRef.current = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(animationFrameRef.current);
-  }, []);
+  }, [animate, height, width]);
   
-  draw();
-
   return (
     <canvas
       className="sun"
