@@ -84,7 +84,6 @@ const Sun: FunctionComponent<Props> = ({
 
   const handleResize = () => {
     if (!ctxRef.current) return;
-    console.log('test');
     const ctx = ctxRef.current;
     const { height, width } = ctx.canvas.getBoundingClientRect();
     const {
