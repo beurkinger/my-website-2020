@@ -1,5 +1,6 @@
 export type Point = { x: number; y: number };
 export type Line = { start: Point; end: Point };
+export type Size = { height: number; width: number };
 
 export const getPointOnCircle = (
   center: Point,

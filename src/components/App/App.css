@@ -10,6 +10,8 @@
   position: relative;
   margin-top: 1rem;
   border: 1px solid white;
+  width: 522px;
+  height: 522px;
 }
 
 .sunWrapper svg {

@@ -15,12 +15,10 @@ const App: FunctionComponent = () => (
       <Hello fillColor={fillColor} strokeColor={strokeColor} />
       <Sun
         backgroundColor={fillColor}
-        height={520}
         maxRaysLength={400}
         nbRays={125}
         strokeColor={strokeColor}
         sunRadius={50}
-        width={520}
       />
       <World fillColor={fillColor} strokeColor={strokeColor} />
     </div>

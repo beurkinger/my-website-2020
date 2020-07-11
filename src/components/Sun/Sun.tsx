@@ -1,43 +1,40 @@
 import { h, FunctionComponent } from 'preact';
 import { useCallback, useEffect, useRef } from 'preact/hooks';
 
-import { getTangents } from './utils';
+import { getTangents, Size } from './utils';
 
 import styles from './Sun.css';
 
 interface Props {
   backgroundColor: string;
-  height: number;
   maxRaysLength: number;
   nbRays: number;
   strokeColor: string;
   sunRadius: number;
-  width: number;
 }
 
 const Sun: FunctionComponent<Props> = ({
   backgroundColor,
-  height,
   maxRaysLength,
   nbRays,
   strokeColor,
   sunRadius,
-  width,
 }: Props) => {
   const animationFrameRef = useRef(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasDimensionsRef = useRef<Size>({ height: 0, width: 0 });
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const rotationRef = useRef(0);
   const easingValueRef = useRef(0);
   // const [raysLength, setRaysLength] = useState<number>(0);
 
   const draw = useCallback(() => {
-    if (!canvasRef.current || !ctxRef.current) return;
+    if (!ctxRef.current) return;
 
     const ctx = ctxRef.current;
+    const { height, width } = canvasDimensionsRef.current;
     const rotation = rotationRef.current;
     const easingValue = easingValueRef.current;
-
     const sunCenter = { x: width / 2, y: height / 2 };
 
     ctx.lineWidth = 1.3;
@@ -68,7 +65,7 @@ const Sun: FunctionComponent<Props> = ({
     ctx.beginPath();
     ctx.arc(sunCenter.x, sunCenter.y, sunRadius + raysLength, 0, 2 * Math.PI);
     ctx.stroke();
-  }, [height, maxRaysLength, nbRays, strokeColor, sunRadius, width]);
+  }, [maxRaysLength, nbRays, strokeColor, sunRadius]);
 
   const animate = useCallback(() => {
     const prevRotation = rotationRef.current;
@@ -91,28 +88,55 @@ const Sun: FunctionComponent<Props> = ({
     animationFrameRef.current = requestAnimationFrame(animate);
   }, [draw]);
 
-  useEffect(() => {
-    const ctx = canvasRef?.current.getContext('2d') ?? null;
-    if (ctx) {
+  const handleResize = () => {
+    if (!ctxRef.current) return;
+    console.log('test');
+    const ctx = ctxRef.current;
+    const { height, width } = ctx.canvas.getBoundingClientRect();
+    const {
+      height: prevHeight,
+      width: prevWidth,
+    } = canvasDimensionsRef.current;
+
+    if (width !== prevWidth || height !== prevHeight) {
       const pixelRatio = window?.devicePixelRatio || 1;
       ctx.canvas.width = width * pixelRatio;
       ctx.canvas.height = height * pixelRatio;
       ctx.scale(pixelRatio, pixelRatio);
       ctx.imageSmoothingEnabled = false;
+      canvasDimensionsRef.current = { height, width };
     }
+  };
 
-    ctxRef.current = ctx;
+  useEffect(() => {
+    const ctx = canvasRef?.current.getContext('2d') ?? null;
+
+    if (ctx) {
+      const { height, width } = ctx.canvas.getBoundingClientRect();
+      const pixelRatio = window?.devicePixelRatio || 1;
+      ctx.canvas.width = width * pixelRatio;
+      ctx.canvas.height = height * pixelRatio;
+      ctx.scale(pixelRatio, pixelRatio);
+      ctx.imageSmoothingEnabled = false;
+      ctxRef.current = ctx;
+      canvasDimensionsRef.current = { height, width };
+    }
 
     animationFrameRef.current = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(animationFrameRef.current);
-  }, [animate, height, width]);
+  }, [animate]);
+
+  useEffect(() => {
+    window?.addEventListener('resize', handleResize);
+    return () => window?.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <canvas
       className={styles.sun}
       ref={canvasRef}
-      style={{ backgroundColor, height, width }}
+      style={{ backgroundColor }}
     />
   );
 };
