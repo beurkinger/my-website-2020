@@ -1,4 +1,5 @@
 .DS_Store
+*.css.d.ts
 
 # Logs
 logs
