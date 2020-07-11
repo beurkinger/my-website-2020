@@ -1,3 +1,4 @@
+const Webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -19,7 +20,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader'],
+        use: [
+          { loader: MiniCssExtractPlugin.loader },
+          '@teamsupercell/typings-for-css-modules-loader',
+          {
+            loader: 'css-loader',
+            options: { modules: true },
+          },
+        ],
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg|png|jpg|svg)$/,
@@ -36,6 +44,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new Webpack.WatchIgnorePlugin([/css\.d\.ts$/]),
     new HtmlWebpackPlugin({
       template: __dirname + '/src/index.html',
       title: 's-u-n',
