@@ -9,17 +9,17 @@ import './App.css';
 const App: FunctionComponent = () => (
   <div id="app">
     <div className="sun-wrapper">
-      <Hello/>
-      <Sun 
+      <Hello />
+      <Sun
         backgroundColor="transparent"
         height={520}
-        maxRaysLength={400} 
-        nbRays={125} 
+        maxRaysLength={400}
+        nbRays={125}
         strokeColor="#FFFFFF"
-        sunRadius={50} 
+        sunRadius={50}
         width={520}
       />
-      <World/>
+      <World />
     </div>
   </div>
 );

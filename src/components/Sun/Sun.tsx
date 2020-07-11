@@ -5,7 +5,6 @@ import { getTangents } from './utils';
 
 import './Sun.css';
 
-
 interface Props {
   backgroundColor: string;
   height: number;
@@ -16,7 +15,15 @@ interface Props {
   width: number;
 }
 
-const Sun: FunctionComponent<Props> = ({ backgroundColor, height, maxRaysLength, nbRays, strokeColor, sunRadius, width }: Props) => {
+const Sun: FunctionComponent<Props> = ({
+  backgroundColor,
+  height,
+  maxRaysLength,
+  nbRays,
+  strokeColor,
+  sunRadius,
+  width,
+}: Props) => {
   const animationFrameRef = useRef(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
@@ -39,9 +46,15 @@ const Sun: FunctionComponent<Props> = ({ backgroundColor, height, maxRaysLength,
 
     ctx.clearRect(0, 0, width, height);
     const raysLength = Math.sin(easingValue) * maxRaysLength;
-    
+
     if (raysLength >= 1) {
-      const tangents = getTangents(sunCenter, sunRadius, raysLength, nbRays, rotation);
+      const tangents = getTangents(
+        sunCenter,
+        sunRadius,
+        raysLength,
+        nbRays,
+        rotation
+      );
       // not using array mapping for performance reasons
       for (let i = 0; i < tangents.length; i++) {
         const { start, end } = tangents[i];
@@ -61,48 +74,47 @@ const Sun: FunctionComponent<Props> = ({ backgroundColor, height, maxRaysLength,
     const prevRotation = rotationRef.current;
     const prevEasingValue = easingValueRef.current;
 
-    rotationRef.current =  prevRotation + 0.005 >= Math.PI * 2 
-      ? prevRotation + 0.005 - Math.PI * 2 
-      : prevRotation + 0.005;
-    easingValueRef.current = prevEasingValue + 0.002 >= Math.PI
-      ? 0 
-      : prevEasingValue + 0.002;
+    rotationRef.current =
+      prevRotation + 0.005 >= Math.PI * 2
+        ? prevRotation + 0.005 - Math.PI * 2
+        : prevRotation + 0.005;
+    easingValueRef.current =
+      prevEasingValue + 0.002 >= Math.PI ? 0 : prevEasingValue + 0.002;
     // setRaysLength(prevRaysLength => (
-    //   prevRaysLength + 0.005 >= maxRaysLength 
-    //   ? 0 
+    //   prevRaysLength + 0.005 >= maxRaysLength
+    //   ? 0
     //   : prevRaysLength + 0.5
     // ));
 
     draw();
 
     animationFrameRef.current = requestAnimationFrame(animate);
-  }, [draw])
-
+  }, [draw]);
 
   useEffect(() => {
-    const ctx = canvasRef?.current.getContext("2d") ?? null;
+    const ctx = canvasRef?.current.getContext('2d') ?? null;
     if (ctx) {
       const pixelRatio = window?.devicePixelRatio || 1;
       ctx.canvas.width = width * pixelRatio;
       ctx.canvas.height = height * pixelRatio;
-      ctx.scale(pixelRatio,pixelRatio);
+      ctx.scale(pixelRatio, pixelRatio);
       ctx.imageSmoothingEnabled = false;
     }
 
     ctxRef.current = ctx;
-    
+
     animationFrameRef.current = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(animationFrameRef.current);
   }, [animate, height, width]);
-  
+
   return (
     <canvas
       className="sun"
       ref={canvasRef}
       style={{ backgroundColor, height, width }}
-    />  
+    />
   );
-}
+};
 
 export default Sun;
