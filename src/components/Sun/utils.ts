@@ -17,13 +17,13 @@ export const getTangent = (center: Point, radius: number, tangentLength: number,
 export const getTangents = (center: Point, radius: number, tangentLength: number, nbTangents: number, rotation: number): Line[] => {  
     if (nbTangents <= 0) return [];
     const angle = (Math.PI * 2) / nbTangents;
+    // not using array mapping for performances reasons
     const tangents = [];
     for (let i = 0; i < nbTangents; i++) {
       const tangent = getTangent(center, radius, tangentLength, angle * i + rotation);
       tangents.push(tangent);
     }
     return tangents;
-    // return [...Array(nbTangents)].map((_, i) => getTangent(center, radius, tangentLength, angle * i + rotation));
   }
 
 // export const ease = (maxValue: number, n: number) => {

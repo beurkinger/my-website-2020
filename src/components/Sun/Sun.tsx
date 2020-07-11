@@ -22,11 +22,7 @@ const Sun: FunctionComponent<Props> = ({ backgroundColor, height, maxRaysLength,
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const rotationRef = useRef(0);
   const easingValueRef = useRef(0);
-  // const [ctx, setCtx] = useState<CanvasRenderingContext2D | null>(null);
-  // const [rotation, setRotation] = useState<number>(0);
   // const [raysLength, setRaysLength] = useState<number>(0);
-  // const [easingValue, setEasingValue] = useState<number>(0);
-
 
   const draw = useCallback(() => {
     if (!canvasRef.current || !ctxRef.current) return;
@@ -44,14 +40,16 @@ const Sun: FunctionComponent<Props> = ({ backgroundColor, height, maxRaysLength,
     ctx.clearRect(0, 0, width, height);
     const raysLength = Math.sin(easingValue) * maxRaysLength;
     
-    if (raysLength > 1) {
+    if (raysLength >= 1) {
       const tangents = getTangents(sunCenter, sunRadius, raysLength, nbRays, rotation);
-      tangents.forEach(({ start, end }) => {
+      // not using array mapping for performance reasons
+      for (let i = 0; i < tangents.length; i++) {
+        const { start, end } = tangents[i];
         ctx.beginPath();
         ctx.moveTo(start.x, start.y);
         ctx.lineTo(end.x, end.y);
         ctx.stroke();
-      })
+      }
     }
 
     ctx.beginPath();
