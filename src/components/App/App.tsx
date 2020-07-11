@@ -3,7 +3,6 @@ import { h, FunctionComponent } from 'preact';
 import Sun from '../Sun/Sun';
 import Hello from '../Hello/Hello';
 import World from '../World/World';
-// import Sun from '../Sun/SunSVG';
 
 import './App.css';
 
