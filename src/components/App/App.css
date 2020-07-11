@@ -23,6 +23,8 @@
 .sun-wrapper .hello {
   top: 0;
   transform: translate3d(-50%, -66%, 0);
+  /* transform: translate3d(-50%, -54%, 0); */
+
 }
 
 .sun-wrapper .world {

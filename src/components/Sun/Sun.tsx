@@ -16,7 +16,7 @@ interface Props {
   width: number;
 }
 
-const Sun: FunctionComponent<Props> = ({ backgroundColor, height, maxRaysLength, nbRays, strokeColor, sunRadius, width }) => {
+const Sun: FunctionComponent<Props> = ({ backgroundColor, height, maxRaysLength, nbRays, strokeColor, sunRadius, width }: Props) => {
   const animationFrameRef = useRef(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [ctx, setCtx] = useState<CanvasRenderingContext2D | null>(null);

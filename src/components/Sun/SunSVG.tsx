@@ -14,7 +14,7 @@ interface Props {
   sunRotation: number;
 }
 
-const Sun: FunctionComponent<Props> = ({ nbRays, raysLength, sunCenter, sunRadius }) => {
+const Sun: FunctionComponent<Props> = ({ nbRays, raysLength, sunCenter, sunRadius }: Props) => {
   const animationFrameRef = useRef(0);
   // const canvasRef = useRef<HTMLCanvasElement>(null);
   // const [ctx, setCtx] = useState<CanvasRenderingContext2D | null>(null);
@@ -84,8 +84,8 @@ const Sun: FunctionComponent<Props> = ({ nbRays, raysLength, sunCenter, sunRadiu
       xmlns="http://www.w3.org/2000/svg"
     >  
     <circle cx={sunCenter.x} cy={sunCenter.y} r={sunRadius + raysLength} />
-    { tangents.map(({ start, end }) => (
-      <line x1={start.x} y1={start.y} x2={end.x} y2={end.y} />
+    { tangents.map(({ start, end }, i) => (
+      <line key={i} x1={start.x} y1={start.y} x2={end.x} y2={end.y} />
     ))}
   </svg>
   );
