@@ -6,20 +6,23 @@ import World from '../World/World';
 
 import './App.css';
 
+const fillColor = '#0000FF';
+const strokeColor = '#FFFFFF';
+
 const App: FunctionComponent = () => (
-  <div id="app">
-    <div className="sun-wrapper">
-      <Hello />
+  <div id="app" style={{ backgroundColor: fillColor }}>
+    <div className="sun-wrapper" style={{ borderColor: strokeColor }}>
+      <Hello fillColor={fillColor} strokeColor={strokeColor} />
       <Sun
-        backgroundColor="transparent"
+        backgroundColor={fillColor}
         height={520}
         maxRaysLength={400}
         nbRays={125}
-        strokeColor="#FFFFFF"
+        strokeColor={strokeColor}
         sunRadius={50}
         width={520}
       />
-      <World />
+      <World fillColor={fillColor} strokeColor={strokeColor} />
     </div>
   </div>
 );

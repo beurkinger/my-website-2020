@@ -1,6 +1,4 @@
 #app {
-  background: #0000FF;
-  /* background: #23ada8; */
   height: 100%;
   width: 100%;
   padding-top: 8rem;
@@ -10,7 +8,7 @@
   position: relative;
   margin: 0 auto;
   border: 1px solid white;
-  width: 520px;
+  width: 522px;
 }
 
 .sun-wrapper .hello, .sun-wrapper .world {
@@ -30,22 +28,4 @@
 .sun-wrapper .world {
   bottom: 0;
   transform: translate3d(-50%, 36%, 0);
-}
-
-
-h1 {
-  /* position: relative;
-  top: 2rem;
-  border: 1px solid;
-  width: 25rem; */
-  margin: 0 auto;
-  padding: 1rem 0;
-  line-height: 1.3;
-  display: block;
-  color: white;
-  text-align: center;
-  font-family: "Helvetica Neue";
-  font-weight: 300;
-  letter-spacing: 0.25rem;
-  background: #0000FF;
 }
