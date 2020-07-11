@@ -10,9 +10,9 @@ const Hello: FunctionComponent<Props> = ({
   strokeColor = '#FFFFFF',
 }: Props) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     className="hello"
     viewBox="0 0 246.65 83.72"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <title>Hello1</title>
     <g>

@@ -9,9 +9,9 @@ const World: FunctionComponent<Props> = ({
   strokeColor = '#FFFFFF',
 }: Props) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     className="world"
     viewBox="0 0 312.53 85.59"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <title>World1</title>
     <g>
