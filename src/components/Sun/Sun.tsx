@@ -61,9 +61,11 @@ const Sun: FunctionComponent<Props> = ({
       }
     }
 
-    ctx.beginPath();
-    ctx.arc(sunCenter.x, sunCenter.y, sunRadius + raysLength, 0, 2 * Math.PI);
-    ctx.stroke();
+    if (raysLength >= 2) {
+      ctx.beginPath();
+      ctx.arc(sunCenter.x, sunCenter.y, sunRadius + raysLength, 0, 2 * Math.PI);
+      ctx.stroke();
+    }
   }, [maxRaysLength, nbRays, strokeColor, sunRadius]);
 
   const animate = useCallback(() => {
