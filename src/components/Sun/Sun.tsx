@@ -26,7 +26,6 @@ const Sun: FunctionComponent<Props> = ({
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const rotationRef = useRef(0);
   const easingValueRef = useRef(0);
-  // const [raysLength, setRaysLength] = useState<number>(0);
 
   const draw = useCallback(() => {
     if (!ctxRef.current) return;
@@ -77,11 +76,6 @@ const Sun: FunctionComponent<Props> = ({
         : prevRotation + 0.005;
     easingValueRef.current =
       prevEasingValue + 0.002 >= Math.PI ? 0 : prevEasingValue + 0.002;
-    // setRaysLength(prevRaysLength => (
-    //   prevRaysLength + 0.005 >= maxRaysLength
-    //   ? 0
-    //   : prevRaysLength + 0.5
-    // ));
 
     draw();
 
