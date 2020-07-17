@@ -1,34 +1,4 @@
 .app {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-.sunWrapper {
-  position: relative;
-  margin-top: 1rem;
-  border: 1px solid white;
-  width: 522px;
-  height: 522px;
-}
-
-.sunWrapper svg {
-  position: absolute;
-  left: 50%;
-  height: 88px;
-  image-rendering: pixelated;
-}
-
-.sunWrapper svg:first-of-type {
-  top: 0;
-  transform: translate3d(-50%, -66%, 0);
-  /* transform: translate3d(-50%, -54%, 0); */
-
-}
-
-.sunWrapper svg:last-of-type {
-  bottom: 0;
-  transform: translate3d(-50%, 36%, 0);
+  height: 100vh;
+  width: 10vw;
 }
