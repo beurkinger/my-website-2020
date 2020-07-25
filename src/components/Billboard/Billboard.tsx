@@ -1,7 +1,9 @@
 import { h, FunctionComponent } from 'preact';
 
+import GitHubIcon from '../GitHubIcon/GitHubIcon';
 import Hello from '../Hello/Hello';
 import Name from '../Name/Name';
+import RoundButton from '../RoundButton/RoundButton';
 import Sun from '../Sun/Sun';
 import World from '../World/World';
 
@@ -32,6 +34,14 @@ const Billboard: FunctionComponent = () => (
           Creative Developer
           <br />
           Paris, France
+        </div>
+        <div className={styles.contactIcons}>
+          <RoundButton url="mailto:thibault.goehringer@gmail.com">
+            @
+          </RoundButton>
+          <RoundButton url="https://github.com/beurkinger">
+            <GitHubIcon fillColor={fillColor} />
+          </RoundButton>
         </div>
       </div>
     </div>

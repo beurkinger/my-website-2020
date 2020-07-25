@@ -1,0 +1,32 @@
+.roundButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #FFF;
+  color: #0000FF;
+  font-size: 1.6rem;
+  font-weight: 300;
+  text-decoration: none;
+  border: 1px solid white;
+}
+
+.roundButton img,
+.roundButton svg {
+  width: auto;
+  height: 1.8rem;
+  max-width: 1.8rem;
+  max-height: 1.8rem;
+}
+
+.roundButton:hover {
+  cursor: pointer;
+  background: #0000FF;
+  color: #FFFFFF;
+}
+
+.roundButton:hover svg g{
+  fill: #FFFFFF;
+}
