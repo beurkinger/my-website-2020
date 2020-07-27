@@ -15,16 +15,18 @@ const strokeColor = '#FFFFFF';
 const Billboard: FunctionComponent = () => (
   <div className={styles.billboard} style={{ backgroundColor: fillColor }}>
     <div className={styles.billboardLeftColumn}>
-      <div className={styles.sunWrapper} style={{ borderColor: strokeColor }}>
-        <Hello fillColor={fillColor} strokeColor={strokeColor} />
-        <Sun
-          backgroundColor={fillColor}
-          maxRaysLength={400}
-          nbRays={125}
-          strokeColor={strokeColor}
-          sunRadius={50}
-        />
-        <World fillColor={fillColor} strokeColor={strokeColor} />
+      <div className={styles.ratioBox} style={{ borderColor: strokeColor }}>
+        <div className={styles.ratioBoxContent}>
+          <Hello fillColor={fillColor} strokeColor={strokeColor} />
+          <Sun
+            backgroundColor={fillColor}
+            maxRaysLength={400}
+            nbRays={125}
+            strokeColor={strokeColor}
+            sunRadius={50}
+          />
+          <World fillColor={fillColor} strokeColor={strokeColor} />
+        </div>
       </div>
     </div>
     <div className={styles.billboardRightColumn}>
