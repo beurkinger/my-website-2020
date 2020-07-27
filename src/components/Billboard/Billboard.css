@@ -100,6 +100,7 @@
   .billboardLeftColumn {
     justify-content: center;
     flex: 2.6;
+    padding-top: 1.7vh;
   }
 
   .billboardRightColumn {
@@ -107,9 +108,9 @@
   }
 
   .ratioBox {
-    width: 50%;
     max-width: 50vh;
   }
+  
 }
 
 @media screen and (max-width: 768px) {
@@ -141,7 +142,7 @@
 
 @media screen and (max-width: 400px) {
   .ratioBoxContent svg {
-    height: 21.5%;
+    height: 21%;
   }
 }
 
