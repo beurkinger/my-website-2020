@@ -24,6 +24,7 @@
 
 .ratioBox {
   position: relative;
+  margin-top: 1vh;
   border: 1px solid white;
   width: 522px;
 }
@@ -92,7 +93,30 @@
   padding-bottom: 0.2rem;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) 
+/* and (orientation: portrait)  */
+{
+  /* .billboard {
+    flex-direction: column;
+  } */
+
+  /* .billboardLeftColumn {
+    justify-content: center;
+    flex: 2.6;
+    padding-top: 1.7vh;
+  } */
+
+  /* .billboardRightColumn {
+    padding-bottom: 4vh;
+  } */
+
+  .ratioBox {
+    margin-top: 1.7vh;
+    max-width: 80vh;
+  }
+}
+
+@media screen and (max-width: 1024px) and (orientation: portrait) {
   .billboard {
     flex-direction: column;
   }
@@ -100,17 +124,15 @@
   .billboardLeftColumn {
     justify-content: center;
     flex: 2.6;
-    padding-top: 1.7vh;
   }
 
   .billboardRightColumn {
     padding-bottom: 4vh;
-  }
+  }  
 
   .ratioBox {
     max-width: 50vh;
   }
-  
 }
 
 @media screen and (max-width: 768px) {
