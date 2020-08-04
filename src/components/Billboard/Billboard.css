@@ -70,7 +70,7 @@
 }
 
 .info > svg:first-of-type {
-  margin-bottom: 0.8rem;
+  margin-bottom: 1.2rem;
   height: 1.75rem;
   opacity: 0.9;
 }
@@ -85,31 +85,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 }
 
 .contactIcons button:first-child {
-  margin-right: 0.8rem;
+  margin-right: 1rem;
   padding-bottom: 0.2rem;
 }
 
-@media screen and (max-width: 1024px) 
-/* and (orientation: portrait)  */
-{
-  /* .billboard {
-    flex-direction: column;
-  } */
-
-  /* .billboardLeftColumn {
-    justify-content: center;
-    flex: 2.6;
-    padding-top: 1.7vh;
-  } */
-
-  /* .billboardRightColumn {
-    padding-bottom: 4vh;
-  } */
-
+@media screen and (max-width: 1024px) {
   .ratioBox {
     margin-top: 1.7vh;
     max-width: 80vh;
