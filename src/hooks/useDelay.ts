@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'preact/hooks';
 
-const DEFAULT_DURATION = 100;
-
-const Delay = (duration = DEFAULT_DURATION): boolean => {
+const useDelay = (duration: number): boolean => {
   const [isDone, setIsDone] = useState(false);
   useEffect(() => {
     setTimeout(() => {
@@ -12,4 +10,4 @@ const Delay = (duration = DEFAULT_DURATION): boolean => {
   return isDone;
 };
 
-export default Delay;
+export default useDelay;
