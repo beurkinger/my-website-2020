@@ -7,7 +7,7 @@ import styles from './Sun.css';
 
 interface Props {
   backgroundColor: string;
-  maxRaysLength: number;
+  sizeOfRays: number;
   nbRays: number;
   strokeColor: string;
   sunRadius: number;
@@ -15,7 +15,7 @@ interface Props {
 
 const Sun: FunctionComponent<Props> = ({
   backgroundColor,
-  maxRaysLength,
+  sizeOfRays,
   nbRays,
   strokeColor,
   sunRadius,
@@ -41,7 +41,8 @@ const Sun: FunctionComponent<Props> = ({
     ctx.strokeStyle = strokeColor;
 
     ctx.clearRect(0, 0, width, height);
-    const raysLength = Math.sin(easingValue) * maxRaysLength;
+    const raysLength =
+      Math.sin(easingValue) * sizeOfRays * Math.min(height, width);
 
     if (raysLength >= 1) {
       const tangents = getTangents(
@@ -66,7 +67,7 @@ const Sun: FunctionComponent<Props> = ({
       ctx.arc(sunCenter.x, sunCenter.y, sunRadius + raysLength, 0, 2 * Math.PI);
       ctx.stroke();
     }
-  }, [maxRaysLength, nbRays, strokeColor, sunRadius]);
+  }, [sizeOfRays, nbRays, strokeColor, sunRadius]);
 
   const animate = useCallback(() => {
     const prevRotation = rotationRef.current;
