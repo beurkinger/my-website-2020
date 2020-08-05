@@ -9,18 +9,12 @@ import styles from './Sun.css';
 
 interface Props {
   backgroundColor: string;
-  sizeOfRays: number;
-  nbRays: number;
   strokeColor: string;
-  sunRadius: number;
 }
 
 const Sun: FunctionComponent<Props> = ({
   backgroundColor,
-  sizeOfRays,
-  nbRays,
   strokeColor,
-  sunRadius,
 }: Props) => {
   const animationFrameRef = useRef(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -28,7 +22,7 @@ const Sun: FunctionComponent<Props> = ({
   const sizeRef = useRef<Size>({ height: 0, width: 0 });
 
   const getRaysLength = useEase(26000, (n) => Math.sin(n * Math.PI));
-  const getRotation = useEase(21000);
+  const getSunRotation = useEase(21000);
 
   const draw = useCallback(() => {
     if (!ctxRef.current) return;
@@ -36,9 +30,11 @@ const Sun: FunctionComponent<Props> = ({
     const ctx = ctxRef.current;
     const { height, width } = sizeRef.current;
     const sunCenter = { x: width / 2, y: height / 2 };
-    const maxRaysLength = sizeOfRays * Math.min(height, width);
+    const sunRadius = Math.round(0.1 * Math.min(height, width));
+    const maxRaysLength = Math.round(0.75 * Math.min(height, width));
+    const nbRays = Math.round(0.12 * (height + width));
     const raysLength = getRaysLength(maxRaysLength);
-    const rotation = getRotation(Math.PI * 2);
+    const sunRotation = getSunRotation(Math.PI * 2);
 
     ctx.lineWidth = 1.3;
     ctx.lineCap = 'round';
@@ -51,7 +47,7 @@ const Sun: FunctionComponent<Props> = ({
       sunRadius,
       raysLength,
       nbRays,
-      rotation
+      sunRotation
     );
     // not using array mapping to increase performances
     for (let i = 0; i < tangents.length; i++) {
@@ -67,7 +63,7 @@ const Sun: FunctionComponent<Props> = ({
     ctx.stroke();
 
     animationFrameRef.current = requestAnimationFrame(draw);
-  }, [getRaysLength, getRotation, sizeOfRays, nbRays, strokeColor, sunRadius]);
+  }, [getRaysLength, getSunRotation, strokeColor]);
 
   const handleResize = () => {
     if (ctxRef.current) {

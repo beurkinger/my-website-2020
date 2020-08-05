@@ -23,13 +23,7 @@ const Billboard: FunctionComponent = () => {
           <div className={styles.ratioBoxContent}>
             <Hello fillColor={fillColor} strokeColor={strokeColor} />
             {isSunVisible && (
-              <Sun
-                backgroundColor={fillColor}
-                nbRays={125}
-                sizeOfRays={0.75}
-                strokeColor={strokeColor}
-                sunRadius={50}
-              />
+              <Sun backgroundColor={fillColor} strokeColor={strokeColor} />
             )}
             <World fillColor={fillColor} strokeColor={strokeColor} />
           </div>
