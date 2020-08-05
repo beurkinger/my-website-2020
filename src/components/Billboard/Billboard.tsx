@@ -14,7 +14,7 @@ const fillColor = '#0000FF';
 const strokeColor = '#FFFFFF';
 
 const Billboard: FunctionComponent = () => {
-  const isSunVisible = useDelay(250);
+  const isSunVisible = useDelay(1250);
 
   return (
     <div className={styles.billboard} style={{ backgroundColor: fillColor }}>

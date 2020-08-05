@@ -1,3 +1,12 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .billboard {
   display: flex;
   height: 100%;
@@ -27,6 +36,7 @@
   margin-top: 1vh;
   border: 1px solid white;
   width: 522px;
+  animation: fadeIn 1s ease 0s both;
 }
 
 .ratioBox:before {
@@ -55,18 +65,21 @@
 .ratioBoxContent svg:first-of-type {
   top: 0;
   transform: translate3d(-50%, -66%, 0);
-  /* transform: translate3d(-50%, -54%, 0); */
+  animation: fadeIn 1s ease 0.25s both;
 }
 
 .ratioBoxContent svg:last-of-type {
   bottom: 0;
   transform: translate3d(-50%, 36%, 0);
+  animation: fadeIn 1s ease 0.5s both;
 }
 
 .info {
   text-align: center;
   font-family: "Roboto Light";
   font-size: 1rem;
+  animation: fadeIn 1s ease 0.75s both;
+
 }
 
 .info > svg:first-of-type {
