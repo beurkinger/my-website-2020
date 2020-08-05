@@ -1,7 +1,9 @@
 import { h, FunctionComponent } from 'preact';
 import { useCallback, useEffect, useRef } from 'preact/hooks';
 
-import { getTangents, Size } from './utils';
+import useEase from '../../hooks/useEase';
+
+import { getTangents, setupCanvas, Size } from './utils';
 
 import styles from './Sun.css';
 
@@ -22,106 +24,66 @@ const Sun: FunctionComponent<Props> = ({
 }: Props) => {
   const animationFrameRef = useRef(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const canvasDimensionsRef = useRef<Size>({ height: 0, width: 0 });
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
-  const rotationRef = useRef(0);
-  const easingValueRef = useRef(0);
+  const sizeRef = useRef<Size>({ height: 0, width: 0 });
+
+  const getRaysLength = useEase(26000, (n) => Math.sin(n * Math.PI));
+  const getRotation = useEase(21000);
 
   const draw = useCallback(() => {
     if (!ctxRef.current) return;
 
     const ctx = ctxRef.current;
-    const { height, width } = canvasDimensionsRef.current;
-    const rotation = rotationRef.current;
-    const easingValue = easingValueRef.current;
+    const { height, width } = sizeRef.current;
     const sunCenter = { x: width / 2, y: height / 2 };
+    const maxRaysLength = sizeOfRays * Math.min(height, width);
+    const raysLength = getRaysLength(maxRaysLength);
+    const rotation = getRotation(Math.PI * 2);
 
     ctx.lineWidth = 1.3;
     ctx.lineCap = 'round';
     ctx.strokeStyle = strokeColor;
 
     ctx.clearRect(0, 0, width, height);
-    const raysLength =
-      Math.sin(easingValue) * sizeOfRays * Math.min(height, width);
 
-    if (raysLength >= 1) {
-      const tangents = getTangents(
-        sunCenter,
-        sunRadius,
-        raysLength,
-        nbRays,
-        rotation
-      );
-      // not using array mapping for performance reasons
-      for (let i = 0; i < tangents.length; i++) {
-        const { start, end } = tangents[i];
-        ctx.beginPath();
-        ctx.moveTo(start.x, start.y);
-        ctx.lineTo(end.x, end.y);
-        ctx.stroke();
-      }
-    }
-
-    if (raysLength >= 2) {
+    const tangents = getTangents(
+      sunCenter,
+      sunRadius,
+      raysLength,
+      nbRays,
+      rotation
+    );
+    // not using array mapping to increase performances
+    for (let i = 0; i < tangents.length; i++) {
+      const { start, end } = tangents[i];
       ctx.beginPath();
-      ctx.arc(sunCenter.x, sunCenter.y, sunRadius + raysLength, 0, 2 * Math.PI);
+      ctx.moveTo(start.x, start.y);
+      ctx.lineTo(end.x, end.y);
       ctx.stroke();
     }
-  }, [sizeOfRays, nbRays, strokeColor, sunRadius]);
 
-  const animate = useCallback(() => {
-    const prevRotation = rotationRef.current;
-    const prevEasingValue = easingValueRef.current;
+    ctx.beginPath();
+    ctx.arc(sunCenter.x, sunCenter.y, sunRadius + raysLength, 0, 2 * Math.PI);
+    ctx.stroke();
 
-    rotationRef.current =
-      prevRotation + 0.005 >= Math.PI * 2
-        ? prevRotation + 0.005 - Math.PI * 2
-        : prevRotation + 0.005;
-    easingValueRef.current =
-      prevEasingValue + 0.002 >= Math.PI ? 0 : prevEasingValue + 0.002;
-
-    draw();
-
-    animationFrameRef.current = requestAnimationFrame(animate);
-  }, [draw]);
+    animationFrameRef.current = requestAnimationFrame(draw);
+  }, [getRaysLength, getRotation, sizeOfRays, nbRays, strokeColor, sunRadius]);
 
   const handleResize = () => {
-    if (!ctxRef.current) return;
-    const ctx = ctxRef.current;
-    const { height, width } = ctx.canvas.getBoundingClientRect();
-    const {
-      height: prevHeight,
-      width: prevWidth,
-    } = canvasDimensionsRef.current;
-
-    if (width !== prevWidth || height !== prevHeight) {
-      const pixelRatio = window?.devicePixelRatio || 1;
-      ctx.canvas.width = width * pixelRatio;
-      ctx.canvas.height = height * pixelRatio;
-      ctx.scale(pixelRatio, pixelRatio);
-      ctx.imageSmoothingEnabled = false;
-      canvasDimensionsRef.current = { height, width };
+    if (ctxRef.current) {
+      sizeRef.current = setupCanvas(ctxRef.current);
     }
   };
 
   useEffect(() => {
-    const ctx = canvasRef?.current.getContext('2d') ?? null;
+    ctxRef.current = canvasRef?.current.getContext('2d') ?? null;
+    if (!ctxRef.current) return;
 
-    if (ctx) {
-      const { height, width } = ctx.canvas.getBoundingClientRect();
-      const pixelRatio = window?.devicePixelRatio || 1;
-      ctx.canvas.width = width * pixelRatio;
-      ctx.canvas.height = height * pixelRatio;
-      ctx.scale(pixelRatio, pixelRatio);
-      ctx.imageSmoothingEnabled = false;
-      ctxRef.current = ctx;
-      canvasDimensionsRef.current = { height, width };
-    }
-
-    animationFrameRef.current = requestAnimationFrame(animate);
+    sizeRef.current = setupCanvas(ctxRef.current);
+    animationFrameRef.current = requestAnimationFrame(draw);
 
     return () => cancelAnimationFrame(animationFrameRef.current);
-  }, [animate]);
+  }, [draw]);
 
   useEffect(() => {
     window?.addEventListener('resize', handleResize);

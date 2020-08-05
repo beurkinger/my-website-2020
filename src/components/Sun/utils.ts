@@ -33,7 +33,7 @@ export const getTangents = (
 ): Line[] => {
   if (nbTangents <= 0) return [];
   const angle = (Math.PI * 2) / nbTangents;
-  // not using array mapping for performances reasons
+  // not using array mapping to increase performances
   const tangents = [];
   for (let i = 0; i < nbTangents; i++) {
     const tangent = getTangent(
@@ -45,4 +45,19 @@ export const getTangents = (
     tangents.push(tangent);
   }
   return tangents;
+};
+
+export const setupCanvas = (
+  ctx: CanvasRenderingContext2D,
+  imageSmoothingEnabled = false
+): Size => {
+  const pixelRatio = window?.devicePixelRatio || 1;
+  const { height, width } = ctx.canvas.getBoundingClientRect();
+
+  ctx.canvas.width = width * pixelRatio;
+  ctx.canvas.height = height * pixelRatio;
+  ctx.scale(pixelRatio, pixelRatio);
+  ctx.imageSmoothingEnabled = imageSmoothingEnabled;
+
+  return { height, width };
 };
