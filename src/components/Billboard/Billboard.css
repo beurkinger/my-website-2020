@@ -96,7 +96,7 @@
 @media screen and (max-width: 1024px) {
   .ratioBox {
     margin-top: 1.7vh;
-    max-width: 80vh;
+    max-width: 75vh;
   }
 }
 
@@ -119,19 +119,19 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (orientation: portrait) {
   .ratioBox {
     width: 90%;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 600px), screen and (max-height: 500px) {
   .ratioBoxContent svg {
     height: 18%;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 500px), screen and (max-height: 500px) {
   .ratioBoxContent svg {
     height: 19%;
   }
@@ -146,13 +146,13 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 400px),  screen and (max-height: 400px){
   .ratioBoxContent svg {
     height: 21%;
   }
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 300px), screen and (max-height: 300px) {
   .ratioBoxContent svg {
     height: 22.5%;
   }
