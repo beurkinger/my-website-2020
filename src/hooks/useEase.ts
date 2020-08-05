@@ -18,9 +18,10 @@ export const useEase = (
 
   return useCallback(
     (valueToEase: number): number => {
-      const nextValue = easeValueRef.current + increment;
+      const currentEaseValue = easeValueRef.current;
+      const nextValue = currentEaseValue + increment;
       easeValueRef.current = nextValue >= 1 ? nextValue - 1 : nextValue;
-      return valueToEase * easeFn(easeValueRef.current);
+      return valueToEase * easeFn(currentEaseValue);
     },
     [easeFn, increment]
   );
