@@ -21,8 +21,8 @@ const Sun: FunctionComponent<Props> = ({
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const sizeRef = useRef<Size>({ height: 0, width: 0 });
 
-  const getRaysLength = useEase(26000, (n) => Math.sin(n * Math.PI));
-  const getSunRotation = useEase(21000);
+  const getRaysLength = useEase(20000, (n) => Math.sin(n * Math.PI));
+  const getSunRotation = useEase(20000);
 
   const draw = useCallback(() => {
     if (!ctxRef.current) return;
@@ -39,8 +39,75 @@ const Sun: FunctionComponent<Props> = ({
     ctx.lineWidth = 1.3;
     ctx.lineCap = 'round';
     ctx.strokeStyle = strokeColor;
+    ctx.fillStyle = strokeColor;
 
     ctx.clearRect(0, 0, width, height);
+
+    // Face
+    ctx.beginPath();
+    ctx.arc(sunCenter.x, sunCenter.y, sunRadius, 0, Math.PI * 2, true);
+    ctx.globalAlpha = 0.2;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    ctx.stroke();
+    // Eyes
+    const eyeRadius = sunRadius * 0.1;
+    ctx.beginPath();
+    ctx.ellipse(
+      sunCenter.x - eyeRadius * 3,
+      sunCenter.y - eyeRadius * 2,
+      eyeRadius,
+      eyeRadius * 1.5,
+      0,
+      0,
+      Math.PI * 2,
+      true
+    );
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(
+      sunCenter.x + eyeRadius * 3,
+      sunCenter.y - eyeRadius * 2,
+      eyeRadius,
+      eyeRadius * 1.5,
+      0,
+      0,
+      Math.PI * 2,
+      true
+    );
+    ctx.fill();
+    // Mouth
+    const mouthRadius = sunRadius * 0.7;
+    ctx.beginPath();
+    ctx.arc(
+      sunCenter.x,
+      sunCenter.y,
+      mouthRadius,
+      Math.PI * 0.05,
+      Math.PI * 0.95,
+      false
+    );
+    ctx.stroke();
+    // Mouth corners
+    const mouthCornerLength = sunRadius * 0.15;
+    ctx.beginPath();
+    ctx.moveTo(
+      sunCenter.x + mouthCornerLength * 4.25,
+      sunCenter.y + mouthCornerLength * 0.4
+    );
+    ctx.lineTo(
+      sunCenter.x + mouthCornerLength * 5,
+      sunCenter.y + mouthCornerLength
+    );
+    ctx.moveTo(
+      sunCenter.x - mouthCornerLength * 4.25,
+      sunCenter.y + mouthCornerLength * 0.4
+    );
+    ctx.lineTo(
+      sunCenter.x - mouthCornerLength * 5,
+      sunCenter.y + mouthCornerLength
+    );
+    ctx.stroke();
 
     const tangents = getTangents(
       sunCenter,
@@ -50,13 +117,13 @@ const Sun: FunctionComponent<Props> = ({
       sunRotation
     );
     // not using array mapping to increase performances
+    ctx.beginPath();
     for (let i = 0; i < tangents.length; i++) {
       const { start, end } = tangents[i];
-      ctx.beginPath();
       ctx.moveTo(start.x, start.y);
       ctx.lineTo(end.x, end.y);
-      ctx.stroke();
     }
+    ctx.stroke();
 
     ctx.beginPath();
     ctx.arc(sunCenter.x, sunCenter.y, sunRadius + raysLength, 0, 2 * Math.PI);
