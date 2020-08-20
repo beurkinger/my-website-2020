@@ -6,7 +6,7 @@ interface Props {
 }
 
 const World: FunctionComponent<Props> = ({
-  alt = false,
+  alt = true,
   fillColor = '#0000FF',
   strokeColor = '#FFFFFF',
 }: Props) =>
