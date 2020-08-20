@@ -3,7 +3,9 @@ import { useCallback, useEffect, useRef } from 'preact/hooks';
 
 import useEase from '../../hooks/useEase';
 
-import { getTangents, setupCanvas, Size } from './utils';
+import { setupCanvas } from './utils/canvas';
+import { getTangents, Size } from './utils/math';
+import { drawSmiley } from './utils/smiley';
 
 import styles from './Sun.css';
 
@@ -43,71 +45,7 @@ const Sun: FunctionComponent<Props> = ({
 
     ctx.clearRect(0, 0, width, height);
 
-    // Face
-    ctx.beginPath();
-    ctx.arc(sunCenter.x, sunCenter.y, sunRadius, 0, Math.PI * 2, true);
-    ctx.globalAlpha = 0.2;
-    ctx.fill();
-    ctx.globalAlpha = 1;
-    ctx.stroke();
-    // Eyes
-    const eyeRadius = sunRadius * 0.1;
-    ctx.beginPath();
-    ctx.ellipse(
-      sunCenter.x - eyeRadius * 3,
-      sunCenter.y - eyeRadius * 2,
-      eyeRadius,
-      eyeRadius * 1.5,
-      0,
-      0,
-      Math.PI * 2,
-      true
-    );
-    ctx.fill();
-    ctx.beginPath();
-    ctx.ellipse(
-      sunCenter.x + eyeRadius * 3,
-      sunCenter.y - eyeRadius * 2,
-      eyeRadius,
-      eyeRadius * 1.5,
-      0,
-      0,
-      Math.PI * 2,
-      true
-    );
-    ctx.fill();
-    // Mouth
-    const mouthRadius = sunRadius * 0.7;
-    ctx.beginPath();
-    ctx.arc(
-      sunCenter.x,
-      sunCenter.y,
-      mouthRadius,
-      Math.PI * 0.05,
-      Math.PI * 0.95,
-      false
-    );
-    ctx.stroke();
-    // Mouth corners
-    const mouthCornerLength = sunRadius * 0.15;
-    ctx.beginPath();
-    ctx.moveTo(
-      sunCenter.x + mouthCornerLength * 4.25,
-      sunCenter.y + mouthCornerLength * 0.4
-    );
-    ctx.lineTo(
-      sunCenter.x + mouthCornerLength * 5,
-      sunCenter.y + mouthCornerLength
-    );
-    ctx.moveTo(
-      sunCenter.x - mouthCornerLength * 4.25,
-      sunCenter.y + mouthCornerLength * 0.4
-    );
-    ctx.lineTo(
-      sunCenter.x - mouthCornerLength * 5,
-      sunCenter.y + mouthCornerLength
-    );
-    ctx.stroke();
+    drawSmiley(ctx, sunCenter, sunRadius);
 
     const tangents = getTangents(
       sunCenter,
