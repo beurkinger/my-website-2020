@@ -1,6 +1,7 @@
 import { h, FunctionComponent } from 'preact';
 
 import useDelay from '../../hooks/useDelay';
+import AtIcon from '../AtIcon/AtIcon';
 import GitHubIcon from '../GitHubIcon/GitHubIcon';
 import Hello from '../Hello/Hello';
 import Name from '../Name/Name';
@@ -39,7 +40,7 @@ const Billboard: FunctionComponent = () => {
           </div>
           <div className={styles.contactIcons}>
             <RoundButton url="mailto:thibault.goehringer@gmail.com">
-              @
+              <AtIcon fillColor={fillColor} />
             </RoundButton>
             <RoundButton url="https://github.com/beurkinger">
               <GitHubIcon fillColor={fillColor} />

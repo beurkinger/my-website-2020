@@ -3,12 +3,10 @@
   align-items: center;
   justify-content: center;
   border-radius: 100%;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: #FFF;
-  color: #0000FF;
-  font-size: 1.6rem;
-  font-weight: 300;
+  width: 2.2rem;
+  height: 2.2rem;
+  padding-top: 0.05rem;
+  background: #FFFFFF;
   text-decoration: none;
   border: 1px solid white;
 }
@@ -16,9 +14,9 @@
 .roundButton img,
 .roundButton svg {
   width: auto;
-  height: 1.8rem;
-  max-width: 1.8rem;
-  max-height: 1.8rem;
+  height: 1.6rem;
+  max-width: 1.6rem;
+  max-height: 1.6rem;
 }
 
 .roundButton:hover {
