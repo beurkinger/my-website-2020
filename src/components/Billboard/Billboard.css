@@ -1,12 +1,3 @@
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .billboard {
   display: flex;
   height: 100%;
@@ -31,96 +22,6 @@
   flex: 1;
 }
 
-.ratioBox {
-  position: relative;
-  margin-top: 1vh;
-  border: 1px solid white;
-  width: 522px;
-  animation: fadeIn 1s ease 0s both;
-}
-
-.ratioBox:before {
-  display: block;
-  position: relative;
-  width: 100%;
-  padding-top: 100%;
-  content: '';
-}
-
-.ratioBoxContent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.ratioBoxContent svg {
-  position: absolute;
-  left: 50%;
-  /* height: 17%; */
-  height: 15%;
-  image-rendering: pixelated;
-}
-
-.ratioBoxContent svg:first-of-type {
-  top: 0;
-  /* transform: translate3d(-50%, -66%, 0); */
-  transform: translate3d(-50%, -55%, 0);
-  animation: fadeIn 1s ease 0.25s both;
-}
-
-.ratioBoxContent svg:last-of-type {
-  bottom: 0;
-  /* transform: translate3d(-50%, 36%, 0); */
-  transform: translate3d(-50%, 35%, 0);
-  animation: fadeIn 1s ease 0.5s both;
-}
-
-.info {
-  text-align: center;
-  font-family: "Roboto Light";
-  font-size: 1rem;
-  animation: fadeIn 1s ease 0.75s both;
-
-}
-
-.info > svg:first-of-type {
-  display: block;
-  margin-bottom: 1.5rem;
-  height: 1.75rem;
-}
-
-.infoDetails {
-  color: #FFF;
-  line-height: 1.6;
-  letter-spacing: 0.1rem;
-}
-
-.contactIcons {
-  display: inline-block;
-  /* align-items: center; */
-  /* justify-content: center; */
-  margin-top: 1.65rem;
-  border: 1px solid #FFFFFF;
-  padding: 0 0.35rem;
-}
-
-.contactIcons button {
-  transform: translateY(45%);
-  margin: 0 0.5rem;
-}
-
-/* .contactIcons button:first-child {
-  margin-right: 1rem;
-} */
-
-@media screen and (max-width: 1024px) {
-  .ratioBox {
-    margin-top: 1.7vh;
-    max-width: 75vh;
-  }
-}
 
 @media screen and (max-width: 1024px) and (orientation: portrait) {
   .billboard {
@@ -135,48 +36,4 @@
   .billboardRightColumn {
     padding-bottom: 4vh;
   }  
-
-  .ratioBox {
-    max-width: 50vh;
-  }
-}
-
-@media screen and (max-width: 768px) and (orientation: portrait) {
-  .ratioBox {
-    width: 90%;
-  }
-}
-
-@media screen and (max-width: 600px), screen and (max-height: 600px) {
-  .ratioBoxContent svg {
-    height: 18%;
-  }
-}
-
-@media screen and (max-width: 500px), screen and (max-height: 500px) {
-  .ratioBoxContent svg {
-    height: 19%;
-  }
-
-  .info {
-    font-size: 0.875rem;
-  }
-
-  .info > svg:first-of-type {
-    margin-bottom: 0.65rem;
-    height: 1.6rem;
-  }
-}
-
-@media screen and (max-width: 400px),  screen and (max-height: 400px){
-  .ratioBoxContent svg {
-    height: 21%;
-  }
-}
-
-@media screen and (max-width: 300px), screen and (max-height: 300px) {
-  .ratioBoxContent svg {
-    /* height: 22.5%; */
-    height: 21%;
-  }
 }

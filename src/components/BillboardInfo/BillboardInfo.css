@@ -1,0 +1,57 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.billboardInfo {
+  text-align: center;
+  font-family: "Roboto Light";
+  font-size: 1rem;
+  animation: fadeIn 1s ease 0.75s both;
+
+}
+
+.billboardInfo > svg:first-of-type {
+  display: block;
+  margin-bottom: 1.5rem;
+  height: 1.75rem;
+}
+
+.infoDetails {
+  color: #FFF;
+  line-height: 1.6;
+  letter-spacing: 0.1rem;
+}
+
+.contactIcons {
+  display: inline-block;
+  /* align-items: center; */
+  /* justify-content: center; */
+  margin-top: 1.65rem;
+  border: 1px solid #FFFFFF;
+  padding: 0 0.35rem;
+}
+
+.contactIcons button {
+  transform: translateY(45%);
+  margin: 0 0.5rem;
+}
+
+@media screen and (max-width: 500px), screen and (max-height: 500px) {
+  .billboardInfo {
+    font-size: 0.875rem;
+  }
+
+  .billboardInfo > svg:first-of-type {
+    margin-bottom: 0.75rem;
+    height: 1.6rem;
+  }
+
+  .billboardInfo > div:last-of-type {
+    margin-top: 1rem;
+  }
+}

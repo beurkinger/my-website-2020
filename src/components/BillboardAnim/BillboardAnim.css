@@ -1,0 +1,98 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.ratioBox {
+  position: relative;
+  margin-top: 1vh;
+  border: 1px solid white;
+  width: 522px;
+  animation: fadeIn 1s ease 0s both;
+}
+
+.ratioBox:before {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  content: '';
+}
+
+.ratioBoxContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ratioBoxContent svg {
+  position: absolute;
+  left: 50%;
+  /* height: 17%; */
+  height: 15%;
+  image-rendering: pixelated;
+}
+
+.ratioBoxContent svg:first-of-type {
+  top: 0;
+  /* transform: translate3d(-50%, -66%, 0); */
+  transform: translate3d(-50%, -55%, 0);
+  animation: fadeIn 1s ease 0.25s both;
+}
+
+.ratioBoxContent svg:last-of-type {
+  bottom: 0;
+  /* transform: translate3d(-50%, 36%, 0); */
+  transform: translate3d(-50%, 35%, 0);
+  animation: fadeIn 1s ease 0.5s both;
+}
+
+@media screen and (max-width: 1024px) {
+  .ratioBox {
+    margin-top: 1.7vh;
+    max-width: 75vh;
+  }
+}
+
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+  .ratioBox {
+    max-width: 50vh;
+  }
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  .ratioBox {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 600px), screen and (max-height: 600px) {
+  .ratioBoxContent svg {
+    height: 18%;
+  }
+}
+
+@media screen and (max-width: 500px), screen and (max-height: 500px) {
+  .ratioBoxContent svg {
+    height: 19%;
+  }
+}
+
+@media screen and (max-width: 400px),  screen and (max-height: 400px){
+  .ratioBoxContent svg {
+    height: 21%;
+  }
+}
+
+@media screen and (max-width: 300px), screen and (max-height: 300px) {
+  .ratioBoxContent svg {
+    /* height: 22.5%; */
+    height: 21%;
+  }
+}
