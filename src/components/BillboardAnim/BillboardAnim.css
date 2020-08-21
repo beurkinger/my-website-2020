@@ -34,21 +34,18 @@
 .ratioBoxContent svg {
   position: absolute;
   left: 50%;
-  /* height: 17%; */
   height: 15%;
   image-rendering: pixelated;
 }
 
 .ratioBoxContent svg:first-of-type {
   top: 0;
-  /* transform: translate3d(-50%, -66%, 0); */
   transform: translate3d(-50%, -55%, 0);
   animation: fadeIn 1s ease 0.25s both;
 }
 
 .ratioBoxContent svg:last-of-type {
   bottom: 0;
-  /* transform: translate3d(-50%, 36%, 0); */
   transform: translate3d(-50%, 35%, 0);
   animation: fadeIn 1s ease 0.5s both;
 }
@@ -92,7 +89,6 @@
 
 @media screen and (max-width: 300px), screen and (max-height: 300px) {
   .ratioBoxContent svg {
-    /* height: 22.5%; */
     height: 21%;
   }
 }
