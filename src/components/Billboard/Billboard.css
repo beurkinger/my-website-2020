@@ -86,9 +86,9 @@
 }
 
 .info > svg:first-of-type {
-  margin-bottom: 1.2rem;
+  display: block;
+  margin-bottom: 1.5rem;
   height: 1.75rem;
-  opacity: 0.9;
 }
 
 .infoDetails {
@@ -98,16 +98,22 @@
 }
 
 .contactIcons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1.2rem;
+  display: inline-block;
+  /* align-items: center; */
+  /* justify-content: center; */
+  margin-top: 1.65rem;
+  border: 1px solid #FFFFFF;
+  padding: 0 0.35rem;
 }
 
-.contactIcons button:first-child {
-  margin-right: 1rem;
-  padding-bottom: 0.2rem;
+.contactIcons button {
+  transform: translateY(45%);
+  margin: 0 0.5rem;
 }
+
+/* .contactIcons button:first-child {
+  margin-right: 1rem;
+} */
 
 @media screen and (max-width: 1024px) {
   .ratioBox {
