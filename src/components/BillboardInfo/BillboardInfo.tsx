@@ -2,7 +2,7 @@ import { h, FunctionComponent } from 'preact';
 
 import AtIcon from '../AtIcon/AtIcon';
 import GitHubIcon from '../GitHubIcon/GitHubIcon';
-import Name from '../Name/Name';
+import Logo from '../Logo/Logo';
 import RoundButton from '../RoundButton/RoundButton';
 
 import styles from './BillboardInfo.css';
@@ -18,7 +18,7 @@ const BillboardInfo: FunctionComponent<Props> = ({
 }: Props) => {
   return (
     <div className={styles.billboardInfo}>
-      <Name fillColor={strokeColor} />
+      <Logo fillColor={strokeColor} />
       <div className={styles.infoDetails}>
         Creative Developer
         <br />
