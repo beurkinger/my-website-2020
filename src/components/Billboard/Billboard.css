@@ -37,3 +37,9 @@
     padding-bottom: 4vh;
   }  
 }
+
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .billboardLeftColumn {
+    justify-content: center;
+  }
+}
