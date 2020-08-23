@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 
-import AtIcon from '../AtIcon/AtIcon';
+import EmailIcon from '../EmailIcon/EmailIcon';
 import GitHubIcon from '../GitHubIcon/GitHubIcon';
 import Logo from '../Logo/Logo';
 import RoundButton from '../RoundButton/RoundButton';
@@ -26,7 +26,7 @@ const BillboardInfo: FunctionComponent<Props> = ({
       </div>
       <div className={styles.contactIcons}>
         <RoundButton url="mailto:thibault.goehringer@gmail.com">
-          <AtIcon fillColor={fillColor} />
+          <EmailIcon fillColor={fillColor} />
         </RoundButton>
         <RoundButton url="https://github.com/beurkinger">
           <GitHubIcon fillColor={fillColor} />
