@@ -35,10 +35,10 @@ const BillboardInfo: FunctionComponent = () => {
         Paris, France
       </div>
       <div className={styles.contactIcons}>
-        <RoundButton onClick={onClickEmail}>
+        <RoundButton onClick={onClickEmail} theme="billboard">
           <EmailIcon />
         </RoundButton>
-        <RoundButton onClick={onClickGitHub}>
+        <RoundButton onClick={onClickGitHub} theme="billboard">
           <GitHubIcon />
         </RoundButton>
       </div>

@@ -2,13 +2,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--color-main-2);;
+  border: 1px solid #000000;
   border-radius: 100%;
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   padding-top: 0.05rem;
-  background: var(--color-main-2);
   text-decoration: none;
+  background: transparent;
 }
 
 .roundButton svg {
@@ -16,15 +16,29 @@
   height: 1.6rem;
   max-width: 1.6rem;
   max-height: 1.6rem;
-  fill: var(--color-main-1);
 }
 
 .roundButton:hover {
   cursor: pointer;
+}
+
+/* Alternative Themes */
+.billboardTheme {
+  border: 1px solid var(--color-main-2);
+  width: 2.2rem;
+  height: 2.2rem;
+  background: var(--color-main-2);
+}
+
+.billboardTheme svg{
+  fill: var(--color-main-1);
+}
+
+.billboardTheme:hover {
   background: var(--color-main-1);
   color: var(--color-main-2);
 }
 
-.roundButton:hover svg g{
+.billboardTheme:hover svg {
   fill: var(--color-main-2);
 }
