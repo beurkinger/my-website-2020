@@ -9,6 +9,10 @@ import { drawSmiley } from './utils/smiley';
 
 import styles from './Sun.css';
 
+const SUN_RADIUS_RATIO = 0.1;
+const RAYS_LENGHT_RATIO = 0.75;
+const NB_RAYS_RATIO = 0.12;
+
 interface Props {
   backgroundColor: string;
   strokeColor: string;
@@ -32,9 +36,9 @@ const Sun: FunctionComponent<Props> = ({
     const ctx = ctxRef.current;
     const { height, width } = sizeRef.current;
     const sunCenter = { x: width / 2, y: height / 2 };
-    const sunRadius = Math.round(0.1 * Math.min(height, width));
-    const maxRaysLength = Math.round(0.75 * Math.min(height, width));
-    const nbRays = Math.round(0.12 * (height + width));
+    const sunRadius = SUN_RADIUS_RATIO * Math.min(height, width);
+    const maxRaysLength = RAYS_LENGHT_RATIO * Math.min(height, width);
+    const nbRays = Math.round(NB_RAYS_RATIO * (height + width));
     const raysLength = getRaysLength(maxRaysLength);
     const sunRotation = getSunRotation(Math.PI * 2);
 
@@ -77,7 +81,8 @@ const Sun: FunctionComponent<Props> = ({
   };
 
   useEffect(() => {
-    ctxRef.current = canvasRef?.current.getContext('2d', { alpha: false }) ?? null;
+    ctxRef.current =
+      canvasRef?.current.getContext('2d', { alpha: false }) ?? null;
     if (!ctxRef.current) return;
 
     sizeRef.current = setupCanvas(ctxRef.current);
