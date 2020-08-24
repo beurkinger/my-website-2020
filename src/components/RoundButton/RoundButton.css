@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #000000;
+  border: 1px solid var(--color-black);
   border-radius: 100%;
   width: 2.5rem;
   height: 2.5rem;
@@ -20,20 +20,20 @@
 
 .roundButton:hover {
   cursor: pointer;
-  background: #000000;
+  background: var(--color-black);
 }
 
 .roundButton:hover svg {
   cursor: pointer;
-  fill: var(--color-main-2);
+  fill: var(--color-white);
 }
 
 /* Alternative Themes */
 .billboardTheme {
-  border: 1px solid var(--color-main-2);
+  border: 1px solid var(--color-white);
   width: 2.2rem;
   height: 2.2rem;
-  background: var(--color-main-2);
+  background: var(--color-white);
 }
 
 .billboardTheme svg{
@@ -42,9 +42,9 @@
 
 .billboardTheme:hover {
   background: var(--color-main-1);
-  color: var(--color-main-2);
+  color: var(--color-white);
 }
 
 .billboardTheme:hover svg {
-  fill: var(--color-main-2);
+  fill: var(--color-white);
 }

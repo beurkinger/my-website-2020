@@ -20,7 +20,7 @@ const BillboardAnim: FunctionComponent = () => {
         {isSunVisible && (
           <Sun
             backgroundColor={theme.colors.main1}
-            strokeColor={theme.colors.main2}
+            strokeColor={theme.colors.white}
           />
         )}
         <World />

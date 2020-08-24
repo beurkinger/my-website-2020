@@ -7,10 +7,10 @@
 }
 
 .emailWindow p {
-  border: 1px solid #000;
+  border: 1px solid var(--color-black);
   padding: 1.5rem;  
 }
 
 .emailWindow a {
-  color: #000000;
+  color: var(--color-black);
 }
