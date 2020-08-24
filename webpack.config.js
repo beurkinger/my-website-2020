@@ -1,4 +1,4 @@
-const Webpack = require('webpack')
+const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -27,6 +27,7 @@ module.exports = {
             loader: 'css-loader',
             options: { modules: true },
           },
+          'postcss-loader',
         ],
       },
       {
