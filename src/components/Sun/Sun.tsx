@@ -77,7 +77,8 @@ const Sun: FunctionComponent<Props> = ({
   };
 
   useEffect(() => {
-    ctxRef.current = canvasRef?.current.getContext('2d') ?? null;
+    ctxRef.current =
+      canvasRef?.current.getContext('2d', { alpha: false }) ?? null;
     if (!ctxRef.current) return;
 
     sizeRef.current = setupCanvas(ctxRef.current);
