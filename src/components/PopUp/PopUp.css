@@ -1,0 +1,39 @@
+@keyframes slideIn {
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+.popUp {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background: #FFEFEF;
+  animation: slideIn 0.3s ease-out 0s both;
+}
+
+.popUpContent {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 4.5em 1.5rem;
+}
+
+.popUpCloseButton {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid #000000;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 100%
+}
