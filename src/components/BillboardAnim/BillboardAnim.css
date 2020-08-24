@@ -43,55 +43,55 @@
 .ratioBoxContent svg:first-of-type {
   top: 0;
   transform: translate3d(-50%, -55%, 0);
-  animation: fadeIn 1s ease 0.5s both;
+  /* animation: fadeIn 1s ease 0.5s both; */
 }
 
-/* .ratioBoxContent svg:first-of-type g:nth-child(1){
-  animation: fadeIn 1s ease 0.25s both;
+.ratioBoxContent svg:first-of-type g:nth-child(1){
+  animation: fadeIn 1s ease 0.2s both;
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(2){
-  animation: fadeIn 1.25s ease 0.25s both;
+  animation: fadeIn 1s ease 0.3s both;
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(3){
-  animation: fadeIn 1.50s ease 0.25s both;
+  animation: fadeIn 1s ease 0.4s both;
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(4){
-  animation: fadeIn 1.75s ease 0.25s both;
+  animation: fadeIn 1s ease 0.5s both;
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(5){
-  animation: fadeIn 2s ease 0.25s both;
-} */
+  animation: fadeIn 1s ease 0.6s both;
+}
 
 .ratioBoxContent svg:last-of-type {
   bottom: 0;
   transform: translate3d(-50%, 35%, 0);
-  animation: fadeIn 1s ease 0.75s both;
+  /* animation: fadeIn 1s ease 0.75s both; */
 }
 
-/* 
+
 .ratioBoxContent svg:last-of-type g:nth-child(1){
-  animation: fadeIn 1s ease 0.25s both;
+  animation: fadeIn 1s ease 0.5s both;
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(2){
-  animation: fadeIn 1.25s ease 0.25s both;
+  animation: fadeIn 1s ease 0.6s both;
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(3){
-  animation: fadeIn 1.50s ease 0.25s both;
+  animation: fadeIn 1s ease 0.7s both;
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(4){
-  animation: fadeIn 1.75s ease 0.25s both;
+  animation: fadeIn 1s ease 0.8s both;
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(5){
-  animation: fadeIn 2s ease 0.25s both;
-} */
+  animation: fadeIn 1s ease 0.9s both;
+}
 
 @media screen and (max-width: 1024px) {
   .ratioBox {
