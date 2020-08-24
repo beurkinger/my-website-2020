@@ -55,13 +55,13 @@ const Sun: FunctionComponent<Props> = ({
       sunRotation
     );
     // not using array mapping to increase performances
-    ctx.beginPath();
     for (let i = 0; i < tangents.length; i++) {
+      ctx.beginPath();
       const { start, end } = tangents[i];
       ctx.moveTo(start.x, start.y);
       ctx.lineTo(end.x, end.y);
+      ctx.stroke();
     }
-    ctx.stroke();
 
     ctx.beginPath();
     ctx.arc(sunCenter.x, sunCenter.y, sunRadius + raysLength, 0, 2 * Math.PI);
@@ -77,8 +77,7 @@ const Sun: FunctionComponent<Props> = ({
   };
 
   useEffect(() => {
-    ctxRef.current =
-      canvasRef?.current.getContext('2d', { alpha: false }) ?? null;
+    ctxRef.current = canvasRef?.current.getContext('2d', { alpha: false }) ?? null;
     if (!ctxRef.current) return;
 
     sizeRef.current = setupCanvas(ctxRef.current);
