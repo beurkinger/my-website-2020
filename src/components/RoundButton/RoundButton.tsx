@@ -9,25 +9,19 @@ const themes = {
 
 interface Props {
   children: ComponentChildren;
-  href?: string;
   onClick?: (e: MouseEvent) => void;
   theme?: keyof typeof themes;
 }
 
 const RoundButton: FunctionComponent<Props> = ({
   children,
-  href = '#',
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onClick = () => {},
   theme = 'default',
 }: Props) => (
-  <a
-    className={`${style.roundButton} ${themes[theme]}`}
-    href={href}
-    onClick={onClick}
-  >
+  <button className={`${style.roundButton} ${themes[theme]}`} onClick={onClick}>
     {children}
-  </a>
+  </button>
 );
 
 export default RoundButton;

@@ -15,11 +15,10 @@ const BillboardInfo: FunctionComponent = () => {
   const onClickEmail = (e: MouseEvent) => {
     e.preventDefault();
     setIsEmailVisible(true);
-    // window.open('mailto:thibault.goehringer@gmail.com');
   };
   const onClickGitHub = (e: MouseEvent) => {
     e.preventDefault();
-    window.open('http://www.github.com');
+    window.open('http://www.github.com/beurkinger');
   };
   const onCloseEmail = () => {
     setIsEmailVisible(false);
