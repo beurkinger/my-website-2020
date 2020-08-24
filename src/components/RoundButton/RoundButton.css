@@ -20,6 +20,12 @@
 
 .roundButton:hover {
   cursor: pointer;
+  background: #000000;
+}
+
+.roundButton:hover svg {
+  cursor: pointer;
+  fill: var(--color-main-2);
 }
 
 /* Alternative Themes */
