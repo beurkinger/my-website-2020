@@ -1,5 +1,6 @@
 import { h, ComponentChildren, FunctionComponent } from 'preact';
 
+import CloseIcon from '../CloseIcon/CloseIcon';
 import RoundButton from '../RoundButton/RoundButton';
 
 import style from './PopUp.css';
@@ -16,7 +17,9 @@ const PopUp: FunctionComponent<Props> = ({
 }: Props) => (
   <div className={style.popUp}>
     <div className={style.popUpCloseButton}>
-      <RoundButton onClick={onClose}>X</RoundButton>
+      <RoundButton onClick={onClose}>
+        <CloseIcon />
+      </RoundButton>
     </div>
     <div className={style.popUpContent}>{children}</div>
   </div>
