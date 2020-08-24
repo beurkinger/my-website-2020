@@ -1,19 +1,10 @@
 import { h, FunctionComponent } from 'preact';
-interface Props {
-  fillColor?: string;
-  strokeColor?: string;
-}
 
-const World: FunctionComponent<Props> = ({
-  fillColor = '#0000FF',
-  strokeColor = '#FFFFFF',
-}: Props) => (
+const World: FunctionComponent = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 280.93 74.62"
     style={{
-      fill: fillColor,
-      stroke: strokeColor,
       strokeMiterlimit: 10,
       strokeWidth: '1.2px',
     }}

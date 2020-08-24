@@ -1,31 +1,29 @@
 import { h, FunctionComponent } from 'preact';
 
+import theme from '../../theme/theme';
+
 import useDelay from '../../hooks/useDelay';
+
 import Hello from '../Hello/Hello';
 import Sun from '../Sun/Sun';
 import World from '../World/World';
 
 import styles from './BillboardAnim.css';
 
-interface Props {
-  fillColor: string;
-  strokeColor: string;
-}
-
-const BillboardAnim: FunctionComponent<Props> = ({
-  fillColor,
-  strokeColor,
-}: Props) => {
+const BillboardAnim: FunctionComponent = () => {
   const isSunVisible = useDelay(1250);
 
   return (
-    <div className={styles.ratioBox} style={{ borderColor: strokeColor }}>
+    <div className={styles.ratioBox}>
       <div className={styles.ratioBoxContent}>
-        <Hello fillColor={fillColor} strokeColor={strokeColor} />
+        <Hello />
         {isSunVisible && (
-          <Sun backgroundColor={fillColor} strokeColor={strokeColor} />
+          <Sun
+            backgroundColor={theme.colors.main1}
+            strokeColor={theme.colors.main2}
+          />
         )}
-        <World fillColor={fillColor} strokeColor={strokeColor} />
+        <World />
       </div>
     </div>
   );

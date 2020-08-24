@@ -2,29 +2,29 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid var(--color-main-2);;
   border-radius: 100%;
   width: 2.2rem;
   height: 2.2rem;
   padding-top: 0.05rem;
-  background: #FFFFFF;
+  background: var(--color-main-2);
   text-decoration: none;
-  border: 1px solid white;
 }
 
-.roundButton img,
 .roundButton svg {
   width: auto;
   height: 1.6rem;
   max-width: 1.6rem;
   max-height: 1.6rem;
+  fill: var(--color-main-1);
 }
 
 .roundButton:hover {
   cursor: pointer;
-  background: #0000FF;
-  color: #FFFFFF;
+  background: var(--color-main-1);
+  color: var(--color-main-2);
 }
 
 .roundButton:hover svg g{
-  fill: #FFFFFF;
+  fill: var(--color-main-2);
 }

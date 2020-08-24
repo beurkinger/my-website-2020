@@ -10,7 +10,7 @@
 .ratioBox {
   position: relative;
   margin-top: 1vh;
-  border: 1px solid white;
+  border: 1px solid var(--color-main-2);;
   width: 522px;
   animation: fadeIn 1s ease 0s both;
 }
@@ -36,6 +36,8 @@
   left: 50%;
   height: 15%;
   image-rendering: pixelated;
+  fill: var(--color-main-1);
+  stroke: var(--color-main-2);;
 }
 
 .ratioBoxContent svg:first-of-type {

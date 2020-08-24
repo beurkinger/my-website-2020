@@ -9,15 +9,7 @@ import RoundButton from '../RoundButton/RoundButton';
 
 import styles from './BillboardInfo.css';
 
-interface Props {
-  fillColor: string;
-  strokeColor: string;
-}
-
-const BillboardInfo: FunctionComponent<Props> = ({
-  fillColor,
-  strokeColor,
-}: Props) => {
+const BillboardInfo: FunctionComponent = () => {
   const [isEmailVisible, setIsEmailVisible] = useState<boolean>(false);
 
   const onClickEmail = (e: MouseEvent) => {
@@ -36,7 +28,7 @@ const BillboardInfo: FunctionComponent<Props> = ({
   return (
     <div className={styles.billboardInfo}>
       {isEmailVisible && <EmailWindow onClose={onCloseEmail} />}
-      <Logo fillColor={strokeColor} />
+      <Logo />
       <div className={styles.infoDetails}>
         Creative Developer
         <br />
@@ -44,10 +36,10 @@ const BillboardInfo: FunctionComponent<Props> = ({
       </div>
       <div className={styles.contactIcons}>
         <RoundButton onClick={onClickEmail}>
-          <EmailIcon fillColor={fillColor} />
+          <EmailIcon />
         </RoundButton>
         <RoundButton onClick={onClickGitHub}>
-          <GitHubIcon fillColor={fillColor} />
+          <GitHubIcon />
         </RoundButton>
       </div>
     </div>

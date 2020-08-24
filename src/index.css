@@ -22,6 +22,7 @@ body {
   font-family: "Roboto-Light", "Roboto Light", "Helvetica Neue", "Helvetica", Arial, sans-serif;
   font-size: 1rem;
   font-weight: 300;
+  background: var(--color-main-1);
 }
 
 body, input, textarea, button, select {

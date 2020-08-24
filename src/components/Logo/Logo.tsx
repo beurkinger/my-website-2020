@@ -1,12 +1,8 @@
 import { h, FunctionComponent } from 'preact';
 
-interface Props {
-  fillColor?: string;
-}
-
-const Name: FunctionComponent<Props> = ({ fillColor = '#0000FF' }: Props) => (
+const Name: FunctionComponent = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232.08 26.5">
-    <g fill={fillColor}>
+    <g>
       <path
         d="M1.08,21.63l.12-.51C3.35,21.3,3.64,20.88,4,19L6.48,6.7,5.15,6.5c-1.94-.28-2.49-.09-3.1.62A7.69,7.69,0,0,0,.89,8.9L.26,8.78A38.62,38.62,0,0,0,1.34,4.62l.41.07c.33.6.68.66,1.34.76q5.16.81,10.33,1.39a1.41,1.41,0,0,0,1.34-.39l.45,0c-.28,1-.54,2.78-.76,4.2v.08l-.64,0A8.78,8.78,0,0,0,13.61,9c-.22-1.1-.82-1.51-2.48-1.71L9.45,7.1c-.79,4.11-1.59,8.2-2.39,12.3a2.64,2.64,0,0,0,.06,2c.32.45,1,.68,2.07.91l-.12.51Q5.08,22.29,1.08,21.63Z"
         transform="translate(-0.26)"

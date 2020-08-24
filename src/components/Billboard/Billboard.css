@@ -4,6 +4,7 @@
   width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
+  background: var(--color-main-1);
 }
 
 .billboardLeftColumn, .billboardRightColumn {
