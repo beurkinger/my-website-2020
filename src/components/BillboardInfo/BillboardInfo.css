@@ -32,7 +32,7 @@
   padding: 0 0.35rem;
 }
 
-.contactIcons button {
+.contactIcons a {
   transform: translateY(45%);
   margin: 0 0.5rem;
 }

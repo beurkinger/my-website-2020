@@ -4,18 +4,19 @@ import style from './RoundButton.css';
 
 interface Props {
   children: ComponentChildren;
-  url: string;
+  href?: string;
+  onClick?: (e: MouseEvent) => void;
 }
 
-const RoundButton: FunctionComponent<Props> = ({ children, url }: Props) => (
-  <button
-    href={url}
-    className={style.roundButton}
-    target="_blank"
-    rel="noreferrer"
-  >
+const RoundButton: FunctionComponent<Props> = ({
+  children,
+  href = '#',
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  onClick = () => {},
+}: Props) => (
+  <a className={style.roundButton} href={href} onClick={onClick}>
     {children}
-  </button>
+  </a>
 );
 
 export default RoundButton;
