@@ -14,12 +14,12 @@ const RAYS_LENGHT_RATIO = 0.75;
 const NB_RAYS_RATIO = 0.12;
 
 interface Props {
-  backgroundColor: string;
+  backgroundColor?: string;
   strokeColor: string;
 }
 
 const Sun: FunctionComponent<Props> = ({
-  backgroundColor,
+  backgroundColor = 'transparent',
   strokeColor,
 }: Props) => {
   const animationFrameRef = useRef(0);

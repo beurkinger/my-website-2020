@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 
-import theme from '../../theme/theme';
+import theme from '../../theme/variables';
 
 import useDelay from '../../hooks/useDelay';
 
@@ -18,10 +18,7 @@ const BillboardAnim: FunctionComponent = () => {
       <div className={styles.ratioBoxContent}>
         <Hello />
         {isSunVisible && (
-          <Sun
-            backgroundColor={theme.colors.main1}
-            strokeColor={theme.colors.white}
-          />
+          <Sun strokeColor={theme.customProperties['--color-white']} />
         )}
         <World />
       </div>
