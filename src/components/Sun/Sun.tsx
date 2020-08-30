@@ -75,18 +75,16 @@ const Sun: FunctionComponent<Props> = ({
   }, [getRaysLength, getSunRotation, strokeColor]);
 
   const handleResize = () => {
-    if (ctxRef.current) {
-      sizeRef.current = setupCanvas(ctxRef.current);
-    }
+    sizeRef.current = canvasRef.current.getBoundingClientRect();
+    ctxRef.current = setupCanvas(canvasRef.current, sizeRef.current);
   };
 
   useEffect(() => {
-    ctxRef.current =
-      canvasRef?.current.getContext('2d', { alpha: false }) ?? null;
-    if (!ctxRef.current) return;
-
-    sizeRef.current = setupCanvas(ctxRef.current);
-    animationFrameRef.current = requestAnimationFrame(draw);
+    sizeRef.current = canvasRef.current.getBoundingClientRect();
+    ctxRef.current = setupCanvas(canvasRef.current, sizeRef.current);
+    if (ctxRef.current) {
+      animationFrameRef.current = requestAnimationFrame(draw);
+    }
 
     return () => cancelAnimationFrame(animationFrameRef.current);
   }, [draw]);
