@@ -28,5 +28,5 @@ body {
 }
 
 body, input, textarea, button, select {
-  line-height: 130%;
+  line-height: 1.3;
 }
