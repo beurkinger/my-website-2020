@@ -2,15 +2,15 @@ const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const title = 'S-U-N';
-const path = {
-  prod: '/s-u-n/',
-  dev: '/',
+const HTML_TITLE = 'S-U-N';
+const PUBLIC_PATH = {
+  PROD: '/s-u-n/',
+  DEV: '/',
 };
 
 module.exports = (_, argv) => {
   const isProduction = argv.mode === 'production';
-  const publicPath = isProduction ? path.prod : path.dev;
+  const publicPath = isProduction ? PUBLIC_PATH.PROD : PUBLIC_PATH.DEV;
 
   return {
     output: {
@@ -61,7 +61,7 @@ module.exports = (_, argv) => {
       new Webpack.WatchIgnorePlugin([/css\.d\.ts$/]),
       new HtmlWebpackPlugin({
         template: __dirname + '/src/index.html',
-        title,
+        title: HTML_TITLE,
       }),
       new MiniCssExtractPlugin(),
     ],
