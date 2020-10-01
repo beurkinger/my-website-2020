@@ -1,7 +1,7 @@
 {
-  "name": "s-u-n",
-  "version": "1.0.0",
-  "description": "Toying around with animated SVG.",
+  "name": "my-website-2020",
+  "version": "0.0.1",
+  "description": "Hi, I'm Thibault Goehringer, a creative / front-end developer living and working in Paris. This is my silly little website :)",
   "main": "index.html",
   "scripts": {
     "build": "webpack --mode production",
@@ -13,22 +13,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/beurkinger/s-u-n.git"
+    "url": "git+https://github.com/beurkinger/my-website-2020.git"
   },
   "keywords": [
     "preact",
-    "boilerplate",
     "javascript",
+    "typescript",
     "html5",
     "css3",
-    "framework"
+    "Thibault Goehringer",
+    "web developer",
+    "front-end developer",
+    "creative developer",
+    "Paris",
+    "France"
   ],
   "author": "Thibault Goehringer",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/beurkinger/s-u-n/issues"
+    "url": "https://github.com/beurkinger/my-website-2020/issues"
   },
-  "homepage": "https://github.com/beurkinger/preact-starter-kit#readme",
+  "homepage": "https://github.com/beurkinger/my-website-2020#readme",
   "dependencies": {
     "preact": "^10.4.4"
   },

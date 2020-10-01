@@ -2,9 +2,9 @@ const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const HTML_TITLE = 'S-U-N';
+const HTML_TITLE = 'Thibault Goehringer - Creative Developer';
 const PUBLIC_PATH = {
-  PROD: '/s-u-n/',
+  PROD: '/my-website-2020/',
   DEV: '/',
 };
 
@@ -44,7 +44,7 @@ module.exports = (_, argv) => {
           ],
         },
         {
-          test: /\.(woff(2)?|ttf|eot|svg|png|jpg|svg)$/,
+          test: /\.(woff(2)?|(o|t)tf|eot|png|jpg|svg)$/,
           use: [
             {
               loader: 'file-loader',

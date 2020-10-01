@@ -15,6 +15,7 @@ const PROJECT_DIR_NAME = path.basename(path.dirname(__dirname));
 const FILE_PATH = {
   PACKAGE_JSON: 'package.json',
   WEBPACK_CONFIG: 'webpack.config.js',
+  README: 'README.md',
 };
 
 const REGEX = {
@@ -23,10 +24,11 @@ const REGEX = {
     VERSION: /"version"[\s:]*?"(.*?)"/is,
     LICENSE: /"license"[\s:]*?"(.*?)"/is,
     DESCRIPTION: /"description"[\s:]*?"(.*?)"/is,
+    KEYWORDS: /"keywords"\s*?:\s*?\[\s*?(.*?)\s*?\]/is,
     AUTHOR: /"author"[\s:]*?"(.*?)"/is,
     REPOSITORY: /"repository".*?"url"[\s:]*?"(.*?)"/is,
     BUGS: /"bugs".*?"url"[\s:]*?"(.*?)"/is,
-    HOMEPAGE: /"homepage".*?"url"[\s:]*?"(.*?)"/is,
+    HOMEPAGE: /"homepage"[\s:]*?"(.*?)"/is,
   },
   WEBPACK_CONFIG: {
     HTML_TITLE: /HTML_TITLE[\s=]*?'(.*?)'/is,
@@ -80,7 +82,14 @@ function getUserInput(config, callback, i = 0) {
 
   const entry = config[i];
   askQuestion(entry.question, entry.default, (answer) => {
-    entry.answer = answer;
+    entry.answer = entry.isArray
+      ? answer
+          .split(',')
+          .map(
+            (n, i, a) => `\r\n    "${n.trim()}"${i === a.length - 1 ? '' : ','}`
+          )
+          .join('')
+      : answer;
     getUserInput(config, callback, i + 1);
   });
 }
@@ -94,9 +103,7 @@ function getNewFileContent(fileContent, config) {
   }, fileContent);
 }
 
-function reviewAndApplyConfig(filePath, fileContent, config, callback) {
-  const newFileContent = getNewFileContent(fileContent, config);
-
+function reviewAndApplyConfig(filePath, newFileContent, callback) {
   console.log('About to write to ' + filePath + ':\r\n');
   console.log(newFileContent + '\r\n');
   askQuestion('Is this ok ?', 'y', (answer) => {
@@ -145,6 +152,16 @@ function updatePackageJSON(callback) {
       answer: '',
     },
     {
+      question: 'Keywords ?',
+      regex: REGEX.PACKAGE_JSON.KEYWORDS,
+      default: matchRegex(fileContent, REGEX.PACKAGE_JSON.KEYWORDS).replace(
+        /["\s]/g,
+        ''
+      ),
+      answer: '',
+      isArray: true,
+    },
+    {
       question: 'Author ?',
       regex: REGEX.PACKAGE_JSON.AUTHOR,
       default: getGitConfigValue('user.name'),
@@ -171,7 +188,8 @@ function updatePackageJSON(callback) {
   ];
 
   getUserInput(config, () => {
-    reviewAndApplyConfig(FILE_PATH.PACKAGE_JSON, fileContent, config, callback);
+    const newFileContent = getNewFileContent(fileContent, config);
+    reviewAndApplyConfig(FILE_PATH.PACKAGE_JSON, newFileContent, callback);
   });
 }
 
@@ -196,13 +214,23 @@ function updateWebpackConfig(callback) {
   ];
 
   getUserInput(config, () => {
-    reviewAndApplyConfig(
-      FILE_PATH.WEBPACK_CONFIG,
-      fileContent,
-      config,
-      callback
-    );
+    const newFileContent = getNewFileContent(fileContent, config);
+    reviewAndApplyConfig(FILE_PATH.WEBPACK_CONFIG, newFileContent, callback);
   });
+}
+
+function updateReadMe(callback) {
+  console.log("Let's update README.md\r\n");
+  const packageJsonContent = fs.readFileSync(FILE_PATH.PACKAGE_JSON, 'utf-8');
+  const name = matchRegex(packageJsonContent, REGEX.PACKAGE_JSON.NAME);
+  const description = matchRegex(
+    packageJsonContent,
+    REGEX.PACKAGE_JSON.DESCRIPTION
+  );
+  // const fileContent = fs.readFileSync(FILE_PATH.README, 'utf-8');
+  const newFileContent = `# ${name}\r\n${description}`;
+
+  reviewAndApplyConfig(FILE_PATH.README, newFileContent, callback);
 }
 
 function main() {
@@ -219,7 +247,9 @@ function main() {
 
   updatePackageJSON(() => {
     updateWebpackConfig(() => {
-      rl.close();
+      updateReadMe(() => {
+        rl.close();
+      });
     });
   });
 }
