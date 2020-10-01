@@ -10,25 +10,26 @@
 .billboardInfo {
   text-align: center;
   animation: fadeIn 1s ease 0.25s both;
-
+  font-size: 1.15rem;
 }
 
 .billboardInfo > svg:first-of-type {
   display: block;
-  margin-bottom: 1.5rem;
-  height: 1.75rem;
+  margin: 0 auto;
+  margin-bottom: 1.6rem;
+  height: 6rem;
   fill: var(--color-white);
 }
 
 .infoDetails {
   color: var(--color-white);
   line-height: 1.6;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.06rem;
 }
 
 .contactIcons {
   display: inline-block;
-  margin-top: 1.65rem;
+  margin-top: 3rem;
   border: 1px solid var(--color-white);
   padding: 0 0.35rem;
 }
@@ -38,17 +39,42 @@
   margin: 0 0.5rem;
 }
 
-@media screen and (max-width: 500px), screen and (max-height: 500px) {
+@media screen and (max-width: 800px), screen and (max-height: 800px) {
   .billboardInfo {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
 
   .billboardInfo > svg:first-of-type {
-    margin-bottom: 0.75rem;
-    height: 1.6rem;
+    height: 5rem;
+  }
+}
+
+@media screen and (max-width: 500px), screen and (max-height: 500px) {
+  .billboardInfo {
+    font-size: 0.9rem;
+  }
+
+  .billboardInfo > svg:first-of-type {
+    margin-bottom: 1.5rem;
+    height: 4.5rem;
   }
 
   .billboardInfo > div:last-of-type {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 320px), screen and (max-height: 320px) {
+  .billboardInfo {
+    font-size: 0.8rem;
+  }
+
+  .billboardInfo > svg:first-of-type {
+    margin-bottom: 1.5rem;
+    height: 4rem;
+  }
+
+  .billboardInfo > div:last-of-type {
+    margin-top: 1.5rem;
   }
 }

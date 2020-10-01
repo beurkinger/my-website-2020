@@ -9,9 +9,9 @@
 
 .ratioBox {
   position: relative;
-  margin-top: 1vh;
+  /* margin-top: 1vh; */
   border: 1px solid var(--color-white);;
-  width: 522px;
+  width: 32.625rem;
   animation: fadeIn 1s ease 0s both;
 }
 
@@ -34,7 +34,7 @@
 .ratioBoxContent svg {
   position: absolute;
   left: 50%;
-  height: 15%;
+  height: 4.875rem;
   image-rendering: pixelated;
   fill: var(--color-main-1);
   stroke: var(--color-white);
@@ -98,7 +98,8 @@
 
 @media screen and (max-width: 1024px) {
   .ratioBox {
-    margin-top: 1.7vh;
+    /* margin-top: 1.7vh; */
+    width: 95%;
     max-width: 75vh;
   }
 }
@@ -111,18 +112,37 @@
 
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .ratioBox {
-    width: 90%;
+    width: 92.5%;
   }
 }
 
 @media screen and (max-width: 600px), screen and (max-height: 600px) {
   .ratioBoxContent svg {
-    height: 19%;
+    height: 4.625rem;
   }
 }
 
-@media screen and (max-width: 300px), screen and (max-height: 300px) {
+@media screen and (max-width: 420px), screen and (max-height: 480px) {
   .ratioBoxContent svg {
-    height: 20%;
+    height: 4.15rem; 
+    
+  }
+}
+
+@media screen and (max-width: 375px), screen and (max-height: 375px) {
+  .ratioBoxContent svg {
+    height: 3.8rem;
+  }
+}
+
+@media screen and (max-width: 320px), screen and (max-height: 320px) {
+  .ratioBoxContent svg {
+    height: 3.35rem;
+  }
+}
+
+@media screen and (max-width: 290px), screen and (max-height: 290px) {
+  .ratioBoxContent svg {
+    height: 3.1rem;
   }
 }

@@ -94,7 +94,6 @@ const Sun: FunctionComponent<Props> = ({
       false,
       true
     );
-    console.log(ctxRef.current)
     if (ctxRef.current) {
       animationFrameRef.current = requestAnimationFrame(draw);
     }
