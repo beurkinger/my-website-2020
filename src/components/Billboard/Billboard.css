@@ -3,8 +3,10 @@
   height: 100%;
   width: 100%;
   flex-direction: row;
+  justify-content: space-around;
   flex-wrap: wrap;
   background: var(--color-main-1);
+  padding: 0 7.5vw;
 }
 
 .billboardLeftColumn, .billboardRightColumn {
@@ -15,49 +17,20 @@
   flex: 1;
 }
 
-.billboardLeftColumn {
-  /* flex: 1.3; */
-  /* flex: 1; */
-  padding-left: 5vw;
-
-  /* justify-content: flex-end; */
+@media screen and (max-width: 1024px) and (orientation: landscape) {
+  .billboard {
+    padding: 0 3.5vw;
+  }
 }
-
-.billboardRightColumn {
-  /* flex: 1; */
-  padding-right: 5vw;
-}
-
 
 @media screen and (max-width: 1024px) and (orientation: portrait) {
   .billboard {
     display: block;
     overflow: auto;
-    /* flex-direction: column; */
-  }
-
-  /* .billboardLeftColumn, .billboardRightColumn {
-    padding: 0;
-  } */
-
-  .billboardLeftColumn {
-    padding: 7.5vh 0;
-    /* justify-content: center; */
-    /* flex: 2.6; */
+    padding: 9vh 0;
   }
 
   .billboardRightColumn {
-    /* padding-bottom: 4vh; */
-    padding: 4vh 0 7.5vh 0;
-    /* justify-content: center; */
-
-
+    padding-top: 11.5vh;
   }  
-}
-
-@media screen and (max-width: 1024px) and (orientation: landscape) {
-
-  /* .billboardLeftColumn {
-    justify-content: center;
-  } */
 }

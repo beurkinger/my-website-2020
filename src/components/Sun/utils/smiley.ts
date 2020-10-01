@@ -8,7 +8,7 @@ export const drawSmiley = (
   // Face
   ctx.beginPath();
   ctx.arc(center.x, center.y, radius, 0, Math.PI * 2, true);
-  ctx.globalAlpha = 0.2;
+  ctx.globalAlpha = 0.1;
   ctx.fill();
   ctx.globalAlpha = 1;
   ctx.stroke();
