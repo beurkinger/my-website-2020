@@ -42,7 +42,7 @@ const Sun: FunctionComponent<Props> = ({
     const raysLength = getRaysLength(maxRaysLength);
     const sunRotation = getSunRotation(Math.PI * 2);
 
-    ctx.lineWidth = 1.3;
+    ctx.lineWidth = 1.4;
     ctx.lineCap = 'round';
     ctx.strokeStyle = strokeColor;
     ctx.fillStyle = strokeColor;
@@ -76,12 +76,25 @@ const Sun: FunctionComponent<Props> = ({
 
   const handleResize = () => {
     sizeRef.current = canvasRef.current.getBoundingClientRect();
-    ctxRef.current = setupCanvas(canvasRef.current, sizeRef.current);
+    ctxRef.current = setupCanvas(
+      canvasRef.current,
+      sizeRef.current,
+      true,
+      false,
+      true
+    );
   };
 
   useEffect(() => {
     sizeRef.current = canvasRef.current.getBoundingClientRect();
-    ctxRef.current = setupCanvas(canvasRef.current, sizeRef.current);
+    ctxRef.current = setupCanvas(
+      canvasRef.current,
+      sizeRef.current,
+      true,
+      false,
+      true
+    );
+    console.log(ctxRef.current)
     if (ctxRef.current) {
       animationFrameRef.current = requestAnimationFrame(draw);
     }
