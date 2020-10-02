@@ -4,6 +4,7 @@ import { useState } from 'preact/hooks';
 import EmailIcon from '../EmailIcon/EmailIcon';
 import EmailWindow from '../EmailWindow/EmailWindow';
 import GitHubIcon from '../GitHubIcon/GitHubIcon';
+import LinkedInIcon from '../LinkedInIcon/LinkedInIcon';
 import Logo from '../Logo/Logo';
 import RoundButton from '../RoundButton/RoundButton';
 
@@ -18,7 +19,11 @@ const BillboardInfo: FunctionComponent = () => {
   };
   const onClickGitHub = (e: MouseEvent) => {
     e.preventDefault();
-    window.open('http://www.github.com/beurkinger');
+    window.open('https://www.github.com/beurkinger');
+  };
+  const onClickLinkedIn = (e: MouseEvent) => {
+    e.preventDefault();
+    window.open('https://www.linkedin.com/in/thibault-goehringer');
   };
   const onCloseEmail = () => {
     setIsEmailVisible(false);
@@ -39,6 +44,9 @@ const BillboardInfo: FunctionComponent = () => {
         </RoundButton>
         <RoundButton onClick={onClickGitHub} theme="billboard">
           <GitHubIcon />
+        </RoundButton>
+        <RoundButton onClick={onClickLinkedIn} theme="billboard">
+          <LinkedInIcon />
         </RoundButton>
       </div>
     </div>
