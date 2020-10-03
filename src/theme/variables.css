@@ -1,5 +1,14 @@
 
-:root {
+
+@font-face {
+    font-family: "Roboto-Light";
+    src: url("../assets/fonts/Roboto-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-display: swap;
+  }
+  
+  :root {
+    --font-family-main-1: "Roboto-Light", "Roboto Light", "Helvetica Neue", "Helvetica", Arial, sans-serif;
     /* --color-main-1: #0000FF; */
     --color-main-1:  #4400ff;
     /* --color-main-1: #3eb189; */
