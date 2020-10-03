@@ -1,6 +1,7 @@
 const Webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const PrerenderSPAPlugin = require('prerender-spa-plugin')
 
 const HTML_TITLE = 'Thibault Goehringer - Creative Developer';
 const PUBLIC_PATH = {
@@ -64,6 +65,10 @@ module.exports = (_, argv) => {
         title: HTML_TITLE,
       }),
       new MiniCssExtractPlugin(),
+      new PrerenderSPAPlugin({
+        staticDir: __dirname + '/dist',
+        routes: ['/'],
+      }),
     ],
     devServer: {
       contentBase: __dirname + '/public',
