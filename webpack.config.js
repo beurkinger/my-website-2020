@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const HTML_TITLE = 'Thibault Goehringer - Creative Developer';
 const PUBLIC_PATH = {
-  PROD: '/my-website-2020/',
+  PROD: '/',
   DEV: '/',
 };
 
