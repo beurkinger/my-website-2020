@@ -453,7 +453,9 @@
 
 @font-face {
     font-family: "Roboto-Light";
-    src: url(/assets/Roboto-Light.woff2) format("woff2");
+    src: 
+        url(/assets/Roboto-Light.woff2) format("woff2"),
+        url(/assets/Roboto-Light.woff) format("woff");
     font-weight: 300;
     font-display: swap;
   }
