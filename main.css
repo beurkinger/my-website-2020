@@ -450,7 +450,16 @@
   height: 100vh;
 }
 
-:root {
+
+@font-face {
+    font-family: "Roboto-Light";
+    src: url(/assets/Roboto-Light.woff2) format("woff2");
+    font-weight: 300;
+    font-display: swap;
+  }
+  
+  :root {
+    --font-family-main-1: "Roboto-Light", "Roboto Light", "Helvetica Neue", "Helvetica", Arial, sans-serif;
     /* --color-main-1: #0000FF; */
     --color-main-1:  #4400ff;
     /* --color-main-1: #3eb189; */
@@ -459,13 +468,6 @@
     --color-black: #000000;
     --color-white: #FFFFFF;
 }
-
-@font-face {
-  font-family: "Roboto-Light";
-  src: url(/assets/Roboto-Light.woff2) format("woff2");
-  font-weight: 300;
-}
-
 * {
   box-sizing: border-box;
   margin: 0; 
@@ -483,6 +485,7 @@ html {
 
 body {
   font-family: "Roboto-Light", "Roboto Light", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-family: var(--font-family-main-1);
   font-size: 1rem;
   font-weight: 300;
   background: #4400ff;
