@@ -54,7 +54,7 @@
   -ms-interpolation-mode: nearest-neighbor;
       image-rendering: -moz-crisp-edges;
       image-rendering: pixelated;
-  fill: #0000FF;
+  fill: #4400ff;
   fill: var(--color-main-1);
   stroke: #FFFFFF;
   stroke: var(--color-white);
@@ -221,12 +221,12 @@
 }
 
 ._1nBrlbN7LDcB3u7ip3EGQ0 svg{
-  fill: #0000FF;
+  fill: #4400ff;
   fill: var(--color-main-1);
 }
 
 ._1nBrlbN7LDcB3u7ip3EGQ0:hover {
-  background: #0000FF;
+  background: #4400ff;
   background: var(--color-main-1);
   color: #FFFFFF;
   color: var(--color-white);
@@ -399,9 +399,23 @@
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  background: #0000FF;
+  background: #4400ff;
   background: var(--color-main-1);
   padding: 0 7.5vw;
+  overflow: hidden;
+}
+
+._3S6DBiRXa10anUjM2BV4V8::before {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  display: block;
+  content: '';
+  height: 200%;
+  width: 1px;
+  background-color: white;
+  transform: rotate(-33deg);
+  transform-origin: top left;
 }
 
 ._1U8nBEZAN7jkRILDUgwNbc, ._9uTD1utmyaW1CgDIgGu-K {
@@ -437,7 +451,8 @@
 }
 
 :root {
-    --color-main-1: #0000FF;
+    /* --color-main-1: #0000FF; */
+    --color-main-1:  #4400ff;
     /* --color-main-1: #3eb189; */
     /* --color-main-1: #00b3a4; */
     --color-main-2: #FFEFEF;
@@ -447,7 +462,7 @@
 
 @font-face {
   font-family: "Roboto-Light";
-  src: url(/my-website-2020/assets/Roboto-Light.woff2) format("woff2");
+  src: url(/assets/Roboto-Light.woff2) format("woff2");
   font-weight: 300;
 }
 
@@ -470,7 +485,7 @@ body {
   font-family: "Roboto-Light", "Roboto Light", "Helvetica Neue", "Helvetica", Arial, sans-serif;
   font-size: 1rem;
   font-weight: 300;
-  background: #0000FF;
+  background: #4400ff;
   background: var(--color-main-1);
 }
 
