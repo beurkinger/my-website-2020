@@ -405,7 +405,7 @@
   overflow: hidden;
 }
 
-._3S6DBiRXa10anUjM2BV4V8::before {
+/* .billboard::before {
   position: absolute;
   top: 0;
   left: 25%;
@@ -416,7 +416,7 @@
   background-color: white;
   transform: rotate(-33deg);
   transform-origin: top left;
-}
+} */
 
 ._1U8nBEZAN7jkRILDUgwNbc, ._9uTD1utmyaW1CgDIgGu-K {
   box-sizing: content-box;
