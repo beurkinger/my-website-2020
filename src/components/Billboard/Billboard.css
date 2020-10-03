@@ -7,7 +7,21 @@
   flex-wrap: wrap;
   background: var(--color-main-1);
   padding: 0 7.5vw;
+  overflow: hidden;
 }
+
+/* .billboard::before {
+  position: absolute;
+  top: 0;
+  left: 25%;
+  display: block;
+  content: '';
+  height: 200%;
+  width: 1px;
+  background-color: white;
+  transform: rotate(-33deg);
+  transform-origin: top left;
+} */
 
 .billboardLeftColumn, .billboardRightColumn {
   box-sizing: initial;
