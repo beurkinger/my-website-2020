@@ -355,6 +355,21 @@
   margin: 0 0.5rem;
 }
 
+._29AhXSa8PT3vkkNwvL7C9g {
+  position: absolute;
+  display: inline-block;
+  top: 125%;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  height: 110px;
+  color: white;
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+  -webkit-text-orientation: upright;
+          text-orientation: upright;
+  letter-spacing: 0;
+}
+
 @media screen and (max-width: 650px), screen and (max-height: 650px) {
   ._2yunOyRVQc4A9UkELVd7Wj {
     font-size: 1rem;
