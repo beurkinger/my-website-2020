@@ -44,15 +44,22 @@
 .contactIconLabel {
   position: absolute;
   display: inline-block;
-  top: 2.8rem;
+  top: 2.5rem;
   left: 50%;
   transform: translate3d(-50%, 0, 0);
+  border: 1px solid transparent;
+  padding: 0.5rem 0.25rem;
   color: white;
   writing-mode: vertical-rl;
   text-orientation: upright;
   font-size: 0.9rem;;
   letter-spacing: 0;
   text-align: center;
+}
+
+.contactIcon button:hover + .contactIconLabel {
+  border-color: white;
+  transition: border 500ms;
 }
 
 @media screen and (max-width: 650px), screen and (max-height: 650px) {
