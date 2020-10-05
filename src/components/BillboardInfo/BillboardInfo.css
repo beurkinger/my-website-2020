@@ -57,7 +57,7 @@
   text-align: center;
 }
 
-.contactIcon button:hover + .contactIconLabel {
+.contactIcon a:hover + .contactIconLabel {
   border-color: white;
   transition: border 500ms;
 }

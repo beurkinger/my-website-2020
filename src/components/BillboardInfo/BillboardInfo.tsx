@@ -17,14 +17,6 @@ const BillboardInfo: FunctionComponent = () => {
     e.preventDefault();
     setIsEmailVisible(true);
   };
-  const onClickGitHub = (e: MouseEvent) => {
-    e.preventDefault();
-    window.open('https://www.github.com/beurkinger');
-  };
-  const onClickLinkedIn = (e: MouseEvent) => {
-    e.preventDefault();
-    window.open('https://www.linkedin.com/in/thibault-goehringer');
-  };
   const onCloseEmail = () => {
     setIsEmailVisible(false);
   };
@@ -46,13 +38,19 @@ const BillboardInfo: FunctionComponent = () => {
           <div className={styles.contactIconLabel}>Contact</div>
         </div>
         <div className={styles.contactIcon}>
-          <RoundButton onClick={onClickGitHub} theme="billboard">
+          <RoundButton
+            href="https://www.github.com/beurkinger"
+            theme="billboard"
+          >
             <GitHubIcon />
           </RoundButton>
           <div className={styles.contactIconLabel}>GitHub</div>
         </div>
         <div className={styles.contactIcon}>
-          <RoundButton onClick={onClickLinkedIn} theme="billboard">
+          <RoundButton
+            href="https://www.linkedin.com/in/thibault-goehringer"
+            theme="billboard"
+          >
             <LinkedInIcon />
           </RoundButton>
           <div className={styles.contactIconLabel}>LinkedIn</div>
