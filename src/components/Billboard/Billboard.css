@@ -37,26 +37,32 @@
   }
 }
 
-@media screen and (max-height: 500px) and (orientation: landscape) {
+@media 
+screen and (max-width: 1024px) and (orientation: portrait),
+screen and (max-height: 600px) and (orientation: landscape) {
   .billboard {
     display: block;
     overflow: auto;
-    padding: 3.25rem 0;
   }
-
-  .billboardRightColumn {
-    padding: 4.5rem 0 8rem;
-  }  
 }
+
 
 @media screen and (max-width: 1024px) and (orientation: portrait) {
   .billboard {
-    display: block;
-    overflow: auto;
     padding: 9vh 0;
   }
 
   .billboardRightColumn {
     padding: 11.5vh 0 8rem;
+  }  
+}
+
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  .billboard {
+    padding: 3.25rem 0;
+  }
+
+  .billboardRightColumn {
+    padding: 4.5rem 0 8rem;
   }  
 }
