@@ -12,6 +12,7 @@
   /* margin-top: 1vh; */
   border: 1px solid var(--color-white);;
   width: 32.625rem;
+  max-width: 32.625rem;
   animation: fadeIn 1s ease 0s both;
 }
 
@@ -98,15 +99,13 @@
 
 @media screen and (max-width: 1024px) {
   .ratioBox {
-    /* margin-top: 1.7vh; */
     width: 95%;
-    max-width: 75vh;
   }
 }
 
-@media screen and (max-width: 1024px) and (orientation: portrait) {
+@media screen and (max-width: 1024px) and (orientation: landscape) {
   .ratioBox {
-    max-width: 50vh;
+    max-width: 75vh;
   }
 }
 

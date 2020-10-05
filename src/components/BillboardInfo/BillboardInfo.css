@@ -34,9 +34,25 @@
   padding: 0 0.35rem;
 }
 
-.contactIcons button {
+.contactIcon {
+  position: relative;
+  display: inline-block;
   transform: translateY(45%);
   margin: 0 0.5rem;
+}
+
+.contactIconLabel {
+  position: absolute;
+  display: inline-block;
+  top: 2.8rem;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  color: white;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 0.9rem;;
+  letter-spacing: 0;
+  text-align: center;
 }
 
 @media screen and (max-width: 650px), screen and (max-height: 650px) {
@@ -49,30 +65,17 @@
     margin-bottom: 1.5rem;
   }
 
-  .billboardInfo > div:last-of-type {
-    margin-top: 1.75rem;
+  .contactIcons {
+    margin-top: 2.5rem;
   }
 }
 
-@media screen and (max-width: 500px), screen and (max-height: 500px) {
+@media screen and (max-width: 400px), screen and (max-height: 400px) {
   .billboardInfo {
     font-size: 0.9rem;
   }
 
   .billboardInfo > svg:first-of-type {
     height: 4.5rem;
-  }
-}
-
-@media screen and (max-width: 300px), screen and (max-height: 300px) {
-  .billboardInfo {
-    font-size: 0.8rem;
-  }
-
-  .billboardInfo > svg:first-of-type {
-    height: 4rem;
-  }
-  .billboardInfo > div:last-of-type {
-    margin-top: 1.35rem;
   }
 }

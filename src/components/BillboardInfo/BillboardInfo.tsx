@@ -39,15 +39,24 @@ const BillboardInfo: FunctionComponent = () => {
         Paris, France
       </div>
       <div className={styles.contactIcons}>
-        <RoundButton onClick={onClickEmail} theme="billboard">
-          <EmailIcon />
-        </RoundButton>
-        <RoundButton onClick={onClickGitHub} theme="billboard">
-          <GitHubIcon />
-        </RoundButton>
-        <RoundButton onClick={onClickLinkedIn} theme="billboard">
-          <LinkedInIcon />
-        </RoundButton>
+        <div className={styles.contactIcon}>
+          <RoundButton onClick={onClickEmail} theme="billboard">
+            <EmailIcon />
+          </RoundButton>
+          <div className={styles.contactIconLabel}>Contact</div>
+        </div>
+        <div className={styles.contactIcon}>
+          <RoundButton onClick={onClickGitHub} theme="billboard">
+            <GitHubIcon />
+          </RoundButton>
+          <div className={styles.contactIconLabel}>GitHub</div>
+        </div>
+        <div className={styles.contactIcon}>
+          <RoundButton onClick={onClickLinkedIn} theme="billboard">
+            <LinkedInIcon />
+          </RoundButton>
+          <div className={styles.contactIconLabel}>LinkedIn</div>
+        </div>
       </div>
     </div>
   );
