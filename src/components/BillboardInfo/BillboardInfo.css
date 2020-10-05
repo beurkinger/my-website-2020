@@ -10,14 +10,14 @@
 .billboardInfo {
   text-align: center;
   animation: fadeIn 1s ease 0.25s both;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
 }
 
 .billboardInfo > svg:first-of-type {
   display: block;
   margin: 0 auto;
   margin-bottom: 1.6rem;
-  height: 6rem;
+  height: 5.5rem;
   fill: var(--color-white);
 }
 
