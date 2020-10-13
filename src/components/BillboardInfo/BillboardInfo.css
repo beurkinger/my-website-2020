@@ -10,14 +10,14 @@
 .billboardInfo {
   text-align: center;
   animation: fadeIn 1s ease-in 0s both;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .billboardInfo > svg:first-of-type {
   display: block;
   margin: 0 auto;
   margin-bottom: 1.6rem;
-  height: 5rem;
+  height: 5.6rem;
   fill: var(--color-white);
 }
 
@@ -60,4 +60,14 @@
 .contactIcon a:hover .contactIconLabel {
   border-color: white;
   transition: border 350ms;
+}
+
+@media screen and (max-width: 768px), screen and (max-height: 768px) {
+  .billboardInfo {
+    font-size: 1rem;
+  }
+  
+  .billboardInfo > svg:first-of-type {
+    height: 5rem;
+  }
 }
