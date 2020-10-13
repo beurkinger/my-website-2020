@@ -9,15 +9,15 @@
 
 .billboardInfo {
   text-align: center;
-  animation: fadeIn 1s ease 0.25s both;
-  font-size: 1.1rem;
+  animation: fadeIn 1s ease-in 0s both;
+  font-size: 1rem;
 }
 
 .billboardInfo > svg:first-of-type {
   display: block;
   margin: 0 auto;
   margin-bottom: 1.6rem;
-  height: 5.5rem;
+  height: 5rem;
   fill: var(--color-white);
 }
 
@@ -53,36 +53,11 @@
   writing-mode: vertical-rl;
   text-orientation: upright;
   font-size: 0.9rem;;
-  letter-spacing: 0;
+  letter-spacing: -0.05rem;
   text-align: center;
 }
 
 .contactIcon a:hover + .contactIconLabel {
   border-color: white;
   transition: border 500ms;
-}
-
-@media screen and (max-width: 650px), screen and (max-height: 650px) {
-  .billboardInfo {
-    font-size: 1rem;
-  }
-
-  .billboardInfo > svg:first-of-type {
-    height: 5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .contactIcons {
-    margin-top: 2.5rem;
-  }
-}
-
-@media screen and (max-width: 400px), screen and (max-height: 400px) {
-  .billboardInfo {
-    font-size: 0.9rem;
-  }
-
-  .billboardInfo > svg:first-of-type {
-    height: 4.5rem;
-  }
 }

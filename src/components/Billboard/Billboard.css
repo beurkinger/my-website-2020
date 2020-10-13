@@ -33,7 +33,7 @@
 
 @media screen and (max-width: 1024px) and (orientation: landscape) {
   .billboard {
-    padding: 0 3.5vw;
+    padding: 0 4.5vw;
   }
 }
 
@@ -45,7 +45,6 @@ screen and (max-height: 600px) and (orientation: landscape) {
     overflow: auto;
   }
 }
-
 
 @media screen and (max-width: 1024px) and (orientation: portrait) {
   .billboard {
