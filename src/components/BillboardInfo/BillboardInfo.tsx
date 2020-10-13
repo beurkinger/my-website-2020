@@ -34,8 +34,8 @@ const BillboardInfo: FunctionComponent = () => {
         <div className={styles.contactIcon}>
           <RoundButton onClick={onClickEmail} theme="billboard">
             <EmailIcon />
+            <div className={styles.contactIconLabel}>Contact</div>
           </RoundButton>
-          <div className={styles.contactIconLabel}>Contact</div>
         </div>
         <div className={styles.contactIcon}>
           <RoundButton
@@ -43,8 +43,8 @@ const BillboardInfo: FunctionComponent = () => {
             theme="billboard"
           >
             <GitHubIcon />
+            <div className={styles.contactIconLabel}>GitHub</div>
           </RoundButton>
-          <div className={styles.contactIconLabel}>GitHub</div>
         </div>
         <div className={styles.contactIcon}>
           <RoundButton
@@ -52,8 +52,8 @@ const BillboardInfo: FunctionComponent = () => {
             theme="billboard"
           >
             <LinkedInIcon />
+            <div className={styles.contactIconLabel}>LinkedIn</div>
           </RoundButton>
-          <div className={styles.contactIconLabel}>LinkedIn</div>
         </div>
       </div>
     </div>
