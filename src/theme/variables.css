@@ -12,10 +12,27 @@
   :root {
     --font-family-main-1: "Roboto-Light", "Roboto Light", "Helvetica Neue", "Helvetica", Arial, sans-serif;
     /* --color-main-1: #0000FF; */
+    /* --color-main-1: #a899ff; */
+    --color-main-1: #6200ff;
     --color-main-1:  #4400ff;
+    /* --color-main-2: #06d6a0; */
+    --color-front-right: white;
+    --color-front-right: red;
+    --color-front-right: #6200ff;
+    --color-front-right: #4400ff;
+    /* --color-front-right: #ff9999; */
+    --color-background-right: #FB3640;
+    --color-background-right: #FE938C;
+    --color-background-right: #DCD6F7;
+    --color-background-right: #FFEFEF;
+    --color-background-right: white;
+
+
+    /* --color-main-2: #f06543; */
+    /* --color-main-2:  #FE5F55; */
     /* --color-main-1: #3eb189; */
     /* --color-main-1: #00b3a4; */
-    --color-main-2: #FFEFEF;
+    --color-main-3: #FFEFEF;
     --color-black: #000000;
     --color-white: #FFFFFF;
 }

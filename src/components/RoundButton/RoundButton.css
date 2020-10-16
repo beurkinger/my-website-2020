@@ -30,21 +30,22 @@
 
 /* Alternative Themes */
 .billboardTheme {
-  border: 0.0625rem solid var(--color-white);
+  border: 0.0625rem solid var(--color-front-right);
   width: 2.2rem;
   height: 2.2rem;
-  background: var(--color-white);
+  background: var(--color-background-right);
+  color: var(--color-front-right);
 }
 
 .billboardTheme svg{
-  fill: var(--color-main-1);
+  fill: var(--color-front-right);
 }
 
 .billboardTheme:hover {
-  background: var(--color-main-1);
-  color: var(--color-white);
+  background: var(--color-front-right);
+  color: var(--color-background-right);
 }
 
 .billboardTheme:hover svg {
-  fill: var(--color-white);
+  fill: var(--color-background-right);
 }
