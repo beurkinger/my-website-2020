@@ -15,7 +15,7 @@
   left:0;
   width: 100vw;
   height: 100vh;
-  background: var(--color-main-3);
+  background: var(--color-background-popup);
   animation: slideIn 0.3s ease-out 0s both;
 }
 

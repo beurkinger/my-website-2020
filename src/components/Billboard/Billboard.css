@@ -5,23 +5,9 @@
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  /* background: var(--color-main-1); */
   /* padding: 0 8vw; */
   overflow: hidden;
 }
-
-/* .billboard::before {
-  position: absolute;
-  top: 0;
-  left: 25%;
-  display: block;
-  content: '';
-  height: 200%;
-  width: 1px;
-  background-color: white;
-  transform: rotate(-33deg);
-  transform-origin: top left;
-} */
 
 .billboardLeftColumn, .billboardRightColumn {
   position: relative;
@@ -33,25 +19,24 @@
 }
 
 .billboardLeftColumn {
-  background: var(--color-main-1);
+  background: var(--color-background-left);
 }
 
-.billboardRightColumn::before {
+/* .billboardRightColumn::before {
   z-index: -1;
   position: absolute;
   top: -25%;
   right: -50%;
   width: 100%;
   height: 100%;
-  /* transform: translateX(-59%); */
   background: yellow;
   content: '';
   border-radius: 50%;
-}
+} */
 
 @media screen and (max-width: 1024px) and (orientation: landscape) {
   .billboard {
-    padding: 0 4.5vw;
+    /* padding: 0 4.5vw; */
   }
 }
 
@@ -66,11 +51,16 @@ screen and (max-height: 600px) and (orientation: landscape) {
 
 @media screen and (max-width: 1024px) and (orientation: portrait) {
   .billboard {
-    padding: 9vh 0;
+    padding: 0 0 9vh;
   }
 
+  .billboardLeftColumn {
+    padding: 9vh 0;
+  }
+  
+
   .billboardRightColumn {
-    padding: 11.5vh 0 8rem;
+    padding: 11vh 0 8rem;
   }  
 }
 

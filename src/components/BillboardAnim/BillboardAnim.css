@@ -36,8 +36,8 @@
   left: 50%;
   height: 4.875rem;
   image-rendering: pixelated;
-  fill: var(--color-main-1);
-  stroke: var(--color-white);
+  fill: var(--color-background-left);
+  stroke: var(--color-front-left);
 }
 
 .ratioBoxContent svg g {

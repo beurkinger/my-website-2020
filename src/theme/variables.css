@@ -13,8 +13,9 @@
     --font-family-main-1: "Roboto-Light", "Roboto Light", "Helvetica Neue", "Helvetica", Arial, sans-serif;
     /* --color-main-1: #0000FF; */
     /* --color-main-1: #a899ff; */
-    --color-main-1: #6200ff;
-    --color-main-1:  #4400ff;
+    --color-front-left:  #FFF;
+    --color-background-left: #6200ff;
+    --color-background-left:  #4400ff;
     /* --color-main-2: #06d6a0; */
     --color-front-right: white;
     --color-front-right: red;
@@ -27,12 +28,15 @@
     --color-background-right: #FFEFEF;
     --color-background-right: white;
 
+    --color-spot-right: #ffff2e;
+    --color-spot-right: yellow;
+
 
     /* --color-main-2: #f06543; */
     /* --color-main-2:  #FE5F55; */
     /* --color-main-1: #3eb189; */
     /* --color-main-1: #00b3a4; */
-    --color-main-3: #FFEFEF;
+    --color-background-popup: #FFEFEF;
     --color-black: #000000;
     --color-white: #FFFFFF;
 }
