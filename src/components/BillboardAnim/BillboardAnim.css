@@ -9,9 +9,10 @@
 
 .ratioBox {
   position: relative;
-  border: 1px solid var(--color-white);;
-  width: 32.625rem;
-  max-width: 32.625rem;
+  border-right: 1px solid var(--color-white);;
+  /* width: 32.625rem;
+  max-width: 32.625rem; */
+  width: 100%;
   animation: fadeIn 1s ease 0s both;
 }
 

@@ -24,11 +24,15 @@ const BillboardInfo: FunctionComponent = () => {
   return (
     <div className={styles.billboardInfo}>
       {isEmailVisible && <EmailWindow onClose={onCloseEmail} />}
-      <Logo />
-      <div className={styles.infoDetails}>
-        Creative Developer
-        <br />
-        Paris, France
+      <div className={styles.infoSpaceTop}>
+        <Logo />
+      </div>
+      <div className={styles.infoSpaceBottom}>
+        <div className={styles.infoDetails}>
+          Creative Developer
+          <br />
+          Paris, France
+        </div>
       </div>
       <div className={styles.contactIcons}>
         <div className={styles.contactIcon}>
