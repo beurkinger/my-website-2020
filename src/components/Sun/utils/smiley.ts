@@ -5,13 +5,18 @@ export const drawSmiley = (
   center: Vector,
   radius: number
 ): void => {
+  ctx.strokeStyle = '#4400ff';
+  ctx.fillStyle = '#ffff2e';
   // Face
   ctx.beginPath();
   ctx.arc(center.x, center.y, radius, 0, Math.PI * 2, true);
-  ctx.globalAlpha = 0.1;
+  // ctx.globalAlpha = 0.1;
   ctx.fill();
-  ctx.globalAlpha = 1;
+  // ctx.globalAlpha = 1;
+  ctx.strokeStyle = 'white';
   ctx.stroke();
+  ctx.strokeStyle = '#4400ff';
+  ctx.fillStyle = '#4400ff';
   // Eyes
   const eyeRadius = radius * 0.1;
   ctx.beginPath();

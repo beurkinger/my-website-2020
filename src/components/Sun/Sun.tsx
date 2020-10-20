@@ -44,12 +44,13 @@ const Sun: FunctionComponent<Props> = ({
 
     ctx.lineWidth = 1.4;
     ctx.lineCap = 'round';
-    ctx.strokeStyle = strokeColor;
-    ctx.fillStyle = strokeColor;
 
     ctx.clearRect(0, 0, width, height);
 
     drawSmiley(ctx, sunCenter, sunRadius);
+    ctx.strokeStyle = strokeColor;
+    ctx.fillStyle = strokeColor;
+
 
     const tangents = getTangents(
       sunCenter,

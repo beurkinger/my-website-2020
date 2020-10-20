@@ -20,6 +20,7 @@
     --color-front-right: white;
     --color-front-right: red;
     --color-front-right: #6200ff;
+    --color-front-right: #333;
     --color-front-right: #4400ff;
     /* --color-front-right: #ff9999; */
     --color-background-right: #FB3640;
@@ -28,8 +29,8 @@
     --color-background-right: #FFEFEF;
     --color-background-right: white;
 
-    --color-spot-right: #ffff2e;
     --color-spot-right: yellow;
+    --color-spot-right: #ffff2e;
 
 
     /* --color-main-2: #f06543; */
