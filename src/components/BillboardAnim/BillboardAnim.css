@@ -10,8 +10,8 @@
 .ratioBox {
   position: relative;
   border: 1px solid var(--color-white);;
-  width: 32.625rem;
-  max-width: 32.625rem;
+  width: 100%;
+  max-width: 33rem;
   animation: fadeIn 1s ease 0s both;
 }
 
@@ -34,8 +34,8 @@
 .ratioBoxContent svg {
   position: absolute;
   left: 50%;
+  width: auto;
   height: 4.875rem;
-  image-rendering: pixelated;
   fill: var(--color-background-left);
   stroke: var(--color-front-left);
 }
@@ -72,7 +72,6 @@
 .ratioBoxContent svg:last-of-type {
   bottom: 0;
   transform: translate3d(-50%, 35%, 0);
-  /* animation: fadeIn 1s ease 0.75s both; */
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(1){
@@ -95,22 +94,14 @@
   animation-delay: 0.9s;
 }
 
-@media screen and (orientation: portrait) {
-  .ratioBox {
-    width: 90%;
-  }
-}
-
 @media screen and (max-width: 768px), screen and (max-height: 768px) {
   .ratioBoxContent svg {
     height: 16%;
-    width: auto;
   }
 }
 
 @media screen and (max-width: 420px), screen and (max-height: 420px) {
   .ratioBoxContent svg {
     height: 20%;
-    width: auto;
   }
 }
