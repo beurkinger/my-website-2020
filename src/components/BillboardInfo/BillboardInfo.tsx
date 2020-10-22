@@ -24,37 +24,27 @@ const BillboardInfo: FunctionComponent = () => {
   return (
     <div className={styles.billboardInfo}>
       {isEmailVisible && <EmailWindow onClose={onCloseEmail} />}
-      <Logo />
-      <div className={styles.infoDetails}>
-        Creative Developer
-        <br />
-        Paris, France
+      <div className={styles.infoHeader}>
+        <Logo />
+        <div className={styles.infoDetails}>
+          Creative Developer
+          <br />
+          Paris, France
+        </div>
       </div>
       <div className={styles.contactIcons}>
-        <div className={styles.contactIcon}>
-          <RoundButton onClick={onClickEmail} theme="billboard">
-            <EmailIcon />
-            <div className={styles.contactIconLabel}>Contact</div>
-          </RoundButton>
-        </div>
-        <div className={styles.contactIcon}>
-          <RoundButton
-            href="https://www.github.com/beurkinger"
-            theme="billboard"
-          >
-            <GitHubIcon />
-            <div className={styles.contactIconLabel}>GitHub</div>
-          </RoundButton>
-        </div>
-        <div className={styles.contactIcon}>
-          <RoundButton
-            href="https://www.linkedin.com/in/thibault-goehringer"
-            theme="billboard"
-          >
-            <LinkedInIcon />
-            <div className={styles.contactIconLabel}>LinkedIn</div>
-          </RoundButton>
-        </div>
+        <RoundButton onClick={onClickEmail} theme="billboard">
+          <EmailIcon />
+        </RoundButton>
+        <RoundButton href="https://www.github.com/beurkinger" theme="billboard">
+          <GitHubIcon />
+        </RoundButton>
+        <RoundButton
+          href="https://www.linkedin.com/in/thibault-goehringer"
+          theme="billboard"
+        >
+          <LinkedInIcon />
+        </RoundButton>
       </div>
     </div>
   );
