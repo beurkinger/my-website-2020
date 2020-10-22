@@ -22,18 +22,6 @@
   background: var(--color-background-left);
 }
 
-/* .billboardRightColumn::before {
-  z-index: -1;
-  position: absolute;
-  top: -25%;
-  right: -50%;
-  width: 100%;
-  height: 100%;
-  background: yellow;
-  content: '';
-  border-radius: 50%;
-} */
-
 @media screen and (max-width: 1024px) and (orientation: landscape) {
   .billboard {
     /* padding: 0 4.5vw; */

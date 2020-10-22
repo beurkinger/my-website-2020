@@ -11,33 +11,17 @@
   
   :root {
     --font-family-main-1: "Roboto-Light", "Roboto Light", "Helvetica Neue", "Helvetica", Arial, sans-serif;
-    /* --color-main-1: #0000FF; */
-    /* --color-main-1: #a899ff; */
-    --color-front-left:  #FFF;
-    --color-background-left: #6200ff;
-    --color-background-left:  #4400ff;
-    /* --color-main-2: #06d6a0; */
-    --color-front-right: white;
-    --color-front-right: red;
-    --color-front-right: #6200ff;
-    --color-front-right: #333;
-    --color-front-right: #4400ff;
-    /* --color-front-right: #ff9999; */
-    --color-background-right: #FB3640;
-    --color-background-right: #FE938C;
-    --color-background-right: #DCD6F7;
-    --color-background-right: #FFEFEF;
-    --color-background-right: white;
-
-    --color-spot-right: yellow;
-    --color-spot-right: #ffff2e;
-
-
-    /* --color-main-2: #f06543; */
-    /* --color-main-2:  #FE5F55; */
-    /* --color-main-1: #3eb189; */
-    /* --color-main-1: #00b3a4; */
-    --color-background-popup: #FFEFEF;
     --color-black: #000000;
     --color-white: #FFFFFF;
+
+    /* --color-background-left: #6200FF; */
+    --color-front-left:  #FFFFFF;
+    --color-background-left:  #4400FF;
+
+    --color-front-right: #4400FF;
+    --color-background-right: #FFFFFF;
+    --color-spot-right: #FFFF2E;
+
+    --color-background-popup: #FFEFEF;
+
 }
