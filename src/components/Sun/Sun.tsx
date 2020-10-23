@@ -10,7 +10,7 @@ import { drawSmiley } from './utils/smiley';
 import styles from './Sun.css';
 
 const SUN_RADIUS_RATIO = 0.1;
-const RAYS_LENGHT_RATIO = 0.75;
+const RAYS_LENGHT_RATIO = 0.725;
 const NB_RAYS_RATIO = 0.12;
 
 interface Props {
