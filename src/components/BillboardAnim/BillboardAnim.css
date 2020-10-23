@@ -1,6 +1,15 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes letterFadeIn {
+  0% {
+    opacity: 0;
     transform: translate3d(2rem, 0, 0);
   }
   100% {
@@ -44,7 +53,7 @@
 }
 
 .ratioBoxContent svg g {
-  animation: fadeIn 0.7s ease both;
+  animation: letterFadeIn 0.7s ease both;
 }
 
 .ratioBoxContent svg:first-of-type {
