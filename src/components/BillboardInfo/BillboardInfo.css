@@ -8,58 +8,76 @@
 }
 
 .billboardInfo {
+  position: relative;
   text-align: center;
-  animation: fadeIn 1s ease-in 0s both;
   font-size: 1.1rem;
 }
 
-.billboardInfo > svg:first-of-type {
+.infoHeader {
+  margin: 3rem 0;
+  color: var(--color-front-right);
+  animation: fadeIn 0.5s ease-in 0s both;
+}
+
+.spot {
+  z-index: -1;
+  position: absolute;
+  left: 50%;
+  /* border-radius: 50%; */
+  width: 10rem;
+  height: 25rem;
+  transform: translate3d(-50%, -30%, 0) rotate(-33deg);
+  /* background: linear-gradient(0deg, rgba(231,255,235,1) 0%, rgba(255,255,182,1) 100%); */
+  background: var(--color-spot-right);
+  animation: fadeIn 1s ease-in 2s both;
+}
+
+.infoHeader svg {
   display: block;
   margin: 0 auto;
   margin-bottom: 1.6rem;
   height: 5.6rem;
-  fill: var(--color-white);
+  fill: var(--color-front-right);
 }
 
 .infoDetails {
-  color: var(--color-white);
   line-height: 1.6;
   letter-spacing: 0.06rem;
 }
 
 .contactIcons {
   display: inline-block;
-  margin-top: 3.6rem;
-  border: 1px solid var(--color-white);
+  border: 1px solid var(--color-front-right);
   padding: 0 0.35rem;
+  animation: fadeIn 0.5s ease-in 0.25s both;
 }
 
-.contactIcon {
+.contactIcons a {
   position: relative;
-  display: inline-block;
   transform: translateY(45%);
   margin: 0 0.5rem;
 }
 
-.contactIconLabel {
-  position: absolute;
-  display: inline-block;
-  top: 2.5rem;
-  left: 50%;
-  transform: translate3d(-50%, 0, 0);
-  border: 1px solid transparent;
-  padding: 0.5rem 0.25rem;
-  color: white;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  font-size: 0.9rem;;
-  letter-spacing: -0.05rem;
-  text-align: center;
-}
+@media 
+screen and (orientation: portrait),
+screen and (orientation: landscape) and (max-height: 600px),
+screen and (orientation: landscape) and (max-width: 1024px) {
+  .infoHeader {
+    margin-top: 0;
+    color: var(--color-front-left);
+  }
 
-.contactIcon a:hover .contactIconLabel {
-  border-color: white;
-  transition: border 350ms;
+  .spot {
+    display: none;
+  }
+  
+  .infoHeader svg {
+    fill: var(--color-front-left);
+  }
+
+  .contactIcons {
+    border: 1px solid var(--color-front-left);
+  }
 }
 
 @media screen and (max-width: 768px), screen and (max-height: 768px) {
@@ -67,7 +85,17 @@
     font-size: 1rem;
   }
   
-  .billboardInfo > svg:first-of-type {
+  .infoHeader > svg:first-of-type {
     height: 5rem;
+  }
+}
+
+@media screen and (max-width: 420px), screen and (max-height: 420px) {
+  .billboardInfo {
+    font-size: 0.9rem;
+  }
+  
+  .infoHeader > svg:first-of-type {
+    height: 4.4rem;
   }
 }

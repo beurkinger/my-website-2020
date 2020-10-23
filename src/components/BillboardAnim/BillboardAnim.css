@@ -7,12 +7,23 @@
   }
 }
 
+@keyframes letterFadeIn {
+  0% {
+    opacity: 0;
+    transform: translate3d(2rem, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .ratioBox {
   position: relative;
-  border: 1px solid var(--color-white);;
-  width: 32.625rem;
-  max-width: 32.625rem;
-  animation: fadeIn 1s ease 0s both;
+  border: 1px solid var(--color-front-left);;
+  width: 100%;
+  max-width: 32.5rem;
+  animation: fadeIn 0.25s ease-in 0s both;
 }
 
 .ratioBox:before {
@@ -34,14 +45,15 @@
 .ratioBoxContent svg {
   position: absolute;
   left: 50%;
+  width: auto;
   height: 4.875rem;
-  image-rendering: pixelated;
-  fill: var(--color-main-1);
-  stroke: var(--color-white);
+  fill: var(--color-background-left);
+  stroke: var(--color-front-left);
+  overflow: visible;
 }
 
 .ratioBoxContent svg g {
-  animation: fadeIn 1s ease both;
+  animation: letterFadeIn 0.7s ease both;
 }
 
 .ratioBoxContent svg:first-of-type {
@@ -50,7 +62,7 @@
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(1){
-  animation-delay: 0.2s;
+  animation-delay: 0.15s;
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(2){
@@ -58,59 +70,57 @@
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(3){
-  animation-delay: 0.4s;
+  animation-delay: 0.45s;
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(4){
-  animation-delay: 0.5s;
+  animation-delay: 0.6s;
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(5){
-  animation-delay: 0.6s;
+  animation-delay: 0.75s;
 }
 
 .ratioBoxContent svg:last-of-type {
   bottom: 0;
   transform: translate3d(-50%, 35%, 0);
-  /* animation: fadeIn 1s ease 0.75s both; */
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(1){
-  animation-delay: 0.5s;
+  animation-delay: 1s;
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(2){
-  animation-delay: 0.6s;
+  animation-delay: 1.15s;
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(3){
-  animation-delay: 0.7s;
+  animation-delay: 1.3s;
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(4){
-  animation-delay: 0.8s;
+  animation-delay: 1.45s;
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(5){
-  animation-delay: 0.9s;
+  animation-delay: 1.6s;
 }
 
-@media screen and (orientation: portrait) {
+
+@media screen and (max-height: 600px) and (orientation: landscape) {
   .ratioBox {
-    width: 90%;
+    max-width: 80vh;
   }
 }
 
 @media screen and (max-width: 768px), screen and (max-height: 768px) {
   .ratioBoxContent svg {
     height: 16%;
-    width: auto;
   }
 }
 
 @media screen and (max-width: 420px), screen and (max-height: 420px) {
   .ratioBoxContent svg {
-    height: 20%;
-    width: auto;
+    height: 19%;
   }
 }

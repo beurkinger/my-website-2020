@@ -1,67 +1,47 @@
 .billboard {
   display: flex;
-  height: 100%;
-  width: 100%;
   flex-direction: row;
   justify-content: space-around;
-  flex-wrap: wrap;
-  background: var(--color-main-1);
-  padding: 0 8vw;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
-/* .billboard::before {
-  position: absolute;
-  top: 0;
-  left: 25%;
-  display: block;
-  content: '';
-  height: 200%;
-  width: 1px;
-  background-color: white;
-  transform: rotate(-33deg);
-  transform-origin: top left;
-} */
-
 .billboardLeftColumn, .billboardRightColumn {
+  position: relative;
   box-sizing: initial;
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 1;
+  padding: 10vh 5vw;
 }
 
-@media screen and (max-width: 1024px) and (orientation: landscape) {
-  .billboard {
-    padding: 0 4.5vw;
-  }
+.billboardLeftColumn {
+  background: var(--color-background-left);
+}
+
+.billboardRightColumn {
+  background: var(--color-background-right);
 }
 
 @media 
-screen and (max-width: 1024px) and (orientation: portrait),
-screen and (max-height: 600px) and (orientation: landscape) {
+screen and (orientation: portrait),
+screen and (orientation: landscape) and (max-height: 600px),
+screen and (orientation: landscape) and (max-width: 1024px) {
   .billboard {
     display: block;
     overflow: auto;
   }
-}
 
-@media screen and (max-width: 1024px) and (orientation: portrait) {
-  .billboard {
-    padding: 9vh 0;
+  .billboardLeftColumn {
+    padding: 10vh 5vw 10vh;
+  }
+  
+  .billboardRightColumn {
+    padding: 2vh 5vw 15vh;
+    background: var(--color-background-left);
   }
 
-  .billboardRightColumn {
-    padding: 11.5vh 0 8rem;
-  }  
-}
-
-@media screen and (max-height: 600px) and (orientation: landscape) {
-  .billboard {
-    padding: 3.25rem 0;
-  }
-
-  .billboardRightColumn {
-    padding: 4.5rem 0 8rem;
-  }  
 }

@@ -17,7 +17,6 @@ body {
   font-family: var(--font-family-main-1);
   font-size: 1rem;
   font-weight: 300;
-  background: var(--color-main-1);
 }
 
 body, input, textarea, button, select {

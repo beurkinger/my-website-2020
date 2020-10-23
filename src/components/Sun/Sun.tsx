@@ -10,8 +10,10 @@ import { drawSmiley } from './utils/smiley';
 import styles from './Sun.css';
 
 const SUN_RADIUS_RATIO = 0.1;
-const RAYS_LENGHT_RATIO = 0.75;
+const RAYS_LENGHT_RATIO = 0.725;
 const NB_RAYS_RATIO = 0.12;
+const GROWTH_DURATION = 20000;
+const ROTATION_DURATION = 16000;
 
 interface Props {
   backgroundColor?: string;
@@ -27,8 +29,8 @@ const Sun: FunctionComponent<Props> = ({
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const sizeRef = useRef<Size>({ height: 0, width: 0 });
 
-  const getRaysLength = useEase(20000, (n) => Math.sin(n * Math.PI));
-  const getSunRotation = useEase(20000);
+  const getRaysLength = useEase(GROWTH_DURATION, (n) => Math.sin(n * Math.PI));
+  const getSunRotation = useEase(ROTATION_DURATION);
 
   const draw = useCallback(() => {
     if (!ctxRef.current) return;
