@@ -28,7 +28,7 @@ const Sun: FunctionComponent<Props> = ({
   const sizeRef = useRef<Size>({ height: 0, width: 0 });
 
   const getRaysLength = useEase(20000, (n) => Math.sin(n * Math.PI));
-  const getSunRotation = useEase(20000);
+  const getSunRotation = useEase(16000);
 
   const draw = useCallback(() => {
     if (!ctxRef.current) return;
