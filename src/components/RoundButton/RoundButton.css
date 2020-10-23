@@ -49,3 +49,12 @@
 .billboardTheme:hover svg {
   fill: var(--color-background-right);
 }
+
+@media 
+screen and (orientation: portrait),
+screen and (orientation: landscape) and (max-height: 600px),
+screen and (orientation: landscape) and (max-width: 1024px) {
+  .billboardTheme {
+    border-color: var(--color-front-left);
+  }
+}

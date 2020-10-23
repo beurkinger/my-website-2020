@@ -25,6 +25,7 @@ const BillboardInfo: FunctionComponent = () => {
     <div className={styles.billboardInfo}>
       {isEmailVisible && <EmailWindow onClose={onCloseEmail} />}
       <div className={styles.infoHeader}>
+        <div className={styles.spot} />
         <Logo />
         <div className={styles.infoDetails}>
           Creative Developer

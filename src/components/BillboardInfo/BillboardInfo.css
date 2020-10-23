@@ -9,18 +9,17 @@
 
 .billboardInfo {
   position: relative;
-  animation: fadeIn 1s ease-in 0s both;
   text-align: center;
   font-size: 1.1rem;
-  font-family: Roboto;
-  font-weight: 500;
 }
 
 .infoHeader {
   margin: 3rem 0;
+  color: var(--color-front-right);
+  animation: fadeIn 0.5s ease-in 0s both;
 }
 
-.infoHeader::before {
+.spot {
   z-index: -1;
   position: absolute;
   left: 50%;
@@ -29,7 +28,7 @@
   height: 25rem;
   transform: translate3d(-50%, -30%, 0) rotate(-45deg);
   background: var(--color-spot-right);
-  content: '';
+  animation: fadeIn 1s ease-in 2s both;
 }
 
 .infoHeader svg {
@@ -41,7 +40,6 @@
 }
 
 .infoDetails {
-  color: var(--color-front-right);
   line-height: 1.6;
   letter-spacing: 0.06rem;
 }
@@ -50,12 +48,34 @@
   display: inline-block;
   border: 1px solid var(--color-front-right);
   padding: 0 0.35rem;
+  animation: fadeIn 0.5s ease-in 0.25s both;
 }
 
 .contactIcons a {
   position: relative;
   transform: translateY(45%);
   margin: 0 0.5rem;
+}
+
+@media 
+screen and (orientation: portrait),
+screen and (orientation: landscape) and (max-height: 600px),
+screen and (orientation: landscape) and (max-width: 1024px) {
+  .infoHeader {
+    color: var(--color-front-left);
+  }
+
+  .spot {
+    display: none;
+  }
+  
+  .infoHeader svg {
+    fill: var(--color-front-left);
+  }
+
+  .contactIcons {
+    border: 1px solid var(--color-front-left);
+  }
 }
 
 @media screen and (max-width: 768px), screen and (max-height: 768px) {

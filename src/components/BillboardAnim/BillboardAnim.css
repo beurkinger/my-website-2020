@@ -1,18 +1,20 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
+    transform: translate3d(2rem, 0, 0);
   }
   100% {
     opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
 .ratioBox {
   position: relative;
-  border: 1px solid var(--color-white);;
+  border: 1px solid var(--color-front-left);;
   width: 100%;
-  max-width: 33rem;
-  animation: fadeIn 1s ease 0s both;
+  max-width: 32.5rem;
+  animation: fadeIn 0.25s ease-in 0s both;
 }
 
 .ratioBox:before {
@@ -38,10 +40,11 @@
   height: 4.875rem;
   fill: var(--color-background-left);
   stroke: var(--color-front-left);
+  overflow: visible;
 }
 
 .ratioBoxContent svg g {
-  animation: fadeIn 1s ease both;
+  animation: fadeIn 0.7s ease both;
 }
 
 .ratioBoxContent svg:first-of-type {
@@ -50,7 +53,7 @@
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(1){
-  animation-delay: 0.2s;
+  animation-delay: 0.15s;
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(2){
@@ -58,15 +61,15 @@
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(3){
-  animation-delay: 0.4s;
+  animation-delay: 0.45s;
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(4){
-  animation-delay: 0.5s;
+  animation-delay: 0.6s;
 }
 
 .ratioBoxContent svg:first-of-type g:nth-child(5){
-  animation-delay: 0.6s;
+  animation-delay: 0.75s;
 }
 
 .ratioBoxContent svg:last-of-type {
@@ -75,23 +78,30 @@
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(1){
-  animation-delay: 0.5s;
+  animation-delay: 1s;
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(2){
-  animation-delay: 0.6s;
+  animation-delay: 1.15s;
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(3){
-  animation-delay: 0.7s;
+  animation-delay: 1.3s;
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(4){
-  animation-delay: 0.8s;
+  animation-delay: 1.45s;
 }
 
 .ratioBoxContent svg:last-of-type g:nth-child(5){
-  animation-delay: 0.9s;
+  animation-delay: 1.6s;
+}
+
+
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  .ratioBox {
+    max-width: 80vh;
+  }
 }
 
 @media screen and (max-width: 768px), screen and (max-height: 768px) {
@@ -102,6 +112,6 @@
 
 @media screen and (max-width: 420px), screen and (max-height: 420px) {
   .ratioBoxContent svg {
-    height: 20%;
+    height: 19%;
   }
 }
