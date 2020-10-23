@@ -40,7 +40,7 @@ screen and (orientation: landscape) and (max-width: 1024px) {
   }
   
   .billboardRightColumn {
-    padding: 0vh 5vw 15vh;
+    padding: 2vh 5vw 15vh;
     background: var(--color-background-left);
   }
 
